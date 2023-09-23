@@ -7,10 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        dark: "#353535",
+        light: "#ffffff",
+        gray: "#d9d9d9",
+        blue: "#284b63",
+        hover: '#3c6e71'
+      },
+      fontFamily: {
+        h1: ['IBM Plex Sans', 'sans-serif'],
+        tag: ['Courier Prime', 'monospace'],
+        light: ['Muli', 'sans-serif'],
+        text: ['Muli', 'sans-serif'],
       },
     },
   },

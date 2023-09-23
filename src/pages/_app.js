@@ -1,5 +1,19 @@
-import '@/styles/globals.css'
+import '@/styles/globals.css';
+import { appWithTranslation } from 'next-i18next';
+import { Navbar, Layout } from '@/components/index'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }) {
+  
+  return (
+    <>
+    <header role="banner">
+      <Navbar/>
+    </header>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    </>
+  );
 }
+
+export default appWithTranslation(App);
