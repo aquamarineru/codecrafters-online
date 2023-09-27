@@ -12,6 +12,17 @@
     }
 
 }
+@layer components {
+    .gradient {
+        background: #3c6e71;
+        background: linear-gradient(-90deg, #3c6e71 0%, rgba(60, 51, 80, 0) 100%);
+        background: -webkit-linear-gradient(
+          -90deg,
+          #3c6e71 0%,
+          rgba(60, 51, 80, 0) 100%
+        );
+      }
+}
 @font-face {
     font-family: "light";
     src: url("../fonts/muli.light.ttf");

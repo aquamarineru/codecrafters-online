@@ -7,3 +7,7 @@ export { default as Navbar } from './Navbar';
 export { default as Footer } from './Footer';
 export { default as VideoAnimation } from './VideoAnimation';
 export { default as Social } from './Social';
+export { default as ContactUs } from './ContactUs';
+export { default as Section } from './Section';
+export { default as Services } from './Services';
+export { default as ServiceTabs } from './ServiceTabs';

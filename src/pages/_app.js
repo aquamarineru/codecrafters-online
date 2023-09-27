@@ -5,14 +5,14 @@ import { Navbar, Layout } from '@/components/index'
 function App({ Component, pageProps }) {
   
   return (
-    <>
+    <div >
     <header role="banner">
       <Navbar/>
     </header>
     <Layout>
       <Component {...pageProps} />
     </Layout>
-    </>
+    </div>
   );
 }
 

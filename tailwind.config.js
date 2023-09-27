@@ -8,11 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#353535",
+        dark: "#030303",
         light: "#ffffff",
         gray: "#d9d9d9",
         blue: "#284b63",
         hover: '#3c6e71'
+      },
+      backgroundImage: {
+        "hero": "url('/bg.png')",
       },
       fontFamily: {
         h1: ['IBM Plex Sans', 'sans-serif'],

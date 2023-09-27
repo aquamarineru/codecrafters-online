@@ -3,46 +3,131 @@ import { PiCalendarBlankThin } from 'react-icons/pi'
 import Link from 'next/link';
 import Image from 'next/image';
 import { urlFor } from '../../lib/client';
-import { VideoAnimation, Container } from '.';
+import { VideoAnimation, Container, Button } from '.';
+import { motion } from 'framer-motion';
 
 
 export default function Hero({ homeData, locale }) {
-console.log('homeData', homeData)
+    const fadeInUp = {
+        initial: {
+            opacity: 0,
+            y: 60,
+        },
+        animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.6, -0.05, 0.01, 0.99]
+            }
+        }
+    };
+    const fadeInUpDelayed = {
+        initial: {
+            opacity: 0,
+            y: 60,
+        },
+        animate: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.6, -0.05, 0.01, 0.99],
+                delay: 1, 
+            }
+        }
+    };
+    const slideDown = {
+        initial: {
+          y: '-100%',  
+        },
+        animate: {
+          y: '0%',  
+          transition: {
+            duration: 2,  
+            ease: 'easeOut',
+          },
+        },
+      };
     return (
-        <div className='relative flex items-center'>
-            <div className='absolute top-0 left-0 right-0 bottom-0'>
-            <div className='absolute top-0 left-0 right-0 bottom-0 h-screen bg-dark/50' />
+        <div className='relative w-full h-full mx-auto'>
+            
                     {
-                    Array.isArray(homeData) && homeData.map((homeItem) => (
-                        <Image
-                            key={homeItem._id}
-                            src={urlFor(homeItem.image).url()}
-                            alt={homeItem.title}
-                            width={800}
-                            height={700}
-                            priority={true}
-                            className='object-cover w-full h-screen -z-10' 
-                        />
-                        ))
+                    Array.isArray(homeData) && homeData.map((homeItem) => {
+                        const localizedTitle = homeItem.title?.find(item => item._key === locale)?.value;
+                        const localizedSubtitle = homeItem.subtitle?.find(item => item._key === locale)?.value;
+                        const localizedButton = homeItem.button?.find(item => item._key === locale)?.value;
+                        const localizedBtn = homeItem.btn?.find(item => item._key === locale)?.value;
+                        return(
+                        <div
+                        key={homeItem._id}
+                        className='absolute top-0 left-0 right-0 bottom-0 h-screen items-center z-0 bg-gradient-to-b from-dark via-dark to-hover'
+                        >
+                       <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero z-0' />
+                            <Container className='flex items-center justify-center xl:gap-16 md:gap-5' >
+                                <div className=' flex flex-row items-start gap-5 justify-center pt-16 xl:pt-32' >
+                                <motion.div 
+                                variants={slideDown}
+                                initial="initial"
+                                animate="animate"
+                                className='flex flex-col justify-center items-center'>
+                                    <div className='w-4 h-4 md:w-5 md:h-5 rounded-full bg-hover' />
+                                    <div className='w-1 sm:h-80 h-40 gradient' />
+                                </motion.div>
+                                <div className='flex flex-col gap-5'>
+                                    <motion.h1
+                                    variants={fadeInUp}
+                                    initial="initial"
+                                    animate="animate" 
+                                    className=" font-black font-h1 text-2xl md:text-4xl md:w-[350px] xl:w-[450px] xl:text-5xl text-light/80 tracking-wid ">
+                                        {localizedTitle}
+                                    </motion.h1>
+                                    <motion.h2 
+                                    variants={fadeInUpDelayed}
+                                    initial="initial"
+                                    animate="animate"
+                                    className=' text-light/80 z-20 text-base md:text-xl xl:text-2xl font-tag md:w-[350px] xl:w-[450px]'>
+                                        {localizedSubtitle}
+                                    </motion.h2>  
+                                <div className='py-10 z-20 cursor-pointer flex flex-col lg:flex-row items-start  lg:items-center gap-5'>
+                                    <Link href="/#contact" >
+                                        <Button>{localizedButton}</Button>
+                                    </Link>
+                                    <Link href="#" >
+                                        <button 
+                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-8 md:text-lg w-full gap-4 px-6"
+                                        >
+                                            <PiCalendarBlankThin  /> 
+                                            {localizedBtn}
+                                        </button>
+                                    </Link>
+                                </div>                                      
+                                </div>
+                                    
+                                </div>
+                                <motion.div
+                                variants={slideDown}
+                                initial="initial"
+                                animate="animate"
+                                >
+                                <Image
+                                key={homeItem._id}
+                                src={urlFor(homeItem.image).url()}
+                                alt={homeItem.title}
+                                width={800}
+                                height={800}
+                                priority={true}
+                                className='hidden md:block md:w-[300px] lg:w-[450px] w-full h-full object-cover '
+                                /> 
+
+                                </motion.div>
+                                
+                            </Container>
+                        </div>
+                    )})
                     } 
-                </div>
-                <Container>
-                    {
-                        Array.isArray(homeData) && homeData.map((homeItem) => {
-                            const localizedTitle = homeItem.title?.find(item => item._key === locale)?.value;
-                            const localizedSubtitle = homeItem.subtitle?.find(item => item._key === locale)?.value;
-                            const localizedButton = homeItem.callToAction?.find(item => item._key === locale)?.value;
-                            const localizedBtn = homeItem.button?.find(item => item._key === locale)?.value;
-                                return (
-                                    <div key={homeItem._id} className='flex flex-col justify-between items-center gap-5 text-center text-dark z-10 px-4 md:px-10 rounded-md lg:w-[700px]'>
-                                        <h1 className=" font-black font-h1 text-2xl md:text-4xl md:w-[500px] xl:text-7xl text-light opacity-75 xl:w-[1000px] tracking-wid ">{localizedTitle}</h1>
-                                    </div>
-                                )
-                        })
 
-                    }
-
-                </Container>
+                
             </div>
     )
 }

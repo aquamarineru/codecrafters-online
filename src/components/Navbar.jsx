@@ -33,9 +33,10 @@ export default function Navbar() {
     };
 
     return(
-        <div className="sticky top-0 z-50 shadow-custom bg-dark/80 ">
+        <div className="sticky top-0 z-50 shadow-custom bg-dark border-b border-light/40">
+            <div className='absolute top-0 left-0 right-0 bottom-0 h-screen bg-hero z-0' />
             <Container>
-                <nav className="mx-auto max-w-7xl px-8 flex items-center justify-between py-5 relative">
+                <nav className="mx-auto max-w-7xl px-8 flex items-center justify-between py-5 relative ">
                     <Link 
                     href='/'
                     className='text-light font-tag uppercase cursor-pointer transition-colors text-md hover:text-hover'
@@ -50,7 +51,7 @@ export default function Navbar() {
                         <div 
                         className="relative cursor-pointer"
                         onClick={toggleDropdown}>
-                        <span className="bg-hover opacity-70 px-4 py-2 rounded-xl uppercase text-light text-sm">{activeLocal} </span>
+                        <span className="bg-hover px-4 py-2 rounded-xl uppercase text-light font-bold text-sm">{activeLocal} </span>
                        {isDropdownOpen && (
                         <div className="absolute left-0 mt-2 bg-dark/90 rounded-xl uppercase text-sm text-light px-4 py-2 z-10">
                              {otherLocales.map((locale, localeIndex) => {
@@ -74,12 +75,12 @@ export default function Navbar() {
                         </div>
                          
                     </div>
-                    <div className={`fixed top-0 left-0 w-full h-screen bg-dark/90 transition-transform duration-300 ${isMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'}`} >
+                    <div className={`fixed top-0 left-0 w-full h-screen bg-dark transition-transform duration-300 ${isMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'}`} >
                         <div className=" flex flex-col items-center justify-center gap-10">
                             <div className='flex flex-col items-center justify-center gap-6 pt-32'>
                                 {links.map(({ href, label }, index) => (
                                     <Link href={href} key={index}
-                                        className='text-light before-element font-tag  cursor-pointer transition-colors tracking-wider hover:text-hover'>
+                                        className='text-light md:text-lg xl:text-xl before-element font-tag  cursor-pointer transition-colors tracking-wider hover:text-hover'>
                                             {label}
                                     
                                     </Link>
