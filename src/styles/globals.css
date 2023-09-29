@@ -11,6 +11,7 @@
         box-sizing: border-box;
     }
 
+
 }
 @layer components {
     .gradient {
@@ -22,6 +23,31 @@
           rgba(60, 51, 80, 0) 100%
         );
       }
+      .gradient-overlay-image {
+    background: 
+        linear-gradient(to bottom, #030303, #030303, #3c6e71),
+        url('/public/bg.png') no-repeat center center / cover;
+        }
+    .before-element {
+        position: relative;
+        display: inline-block;
+    }
+
+  .before-element::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.3s;
+  }
+
+  .before-element:hover::before {
+    width: 100%;
+    background: #3c6e71;
+  }
 }
 @font-face {
     font-family: "light";
@@ -33,3 +59,30 @@
 }
 
 
+@layer components{
+    .float-animation {
+    animation: float 1s infinite ease-in-out alternate;
+  }
+
+  .delay-200 {
+    animation-delay: .2s;
+  }
+
+  .delay-400 {
+    animation-delay: .4s;
+  }
+
+  .delay-600 {
+    animation-delay: .6s;
+  }
+
+  .delay-800 {
+    animation-delay: .8s;
+  }
+  
+  @keyframes float {
+    100% {
+      transform: translateY(20px);
+    }
+  }
+}

@@ -33,8 +33,7 @@ export default function Navbar() {
     };
 
     return(
-        <div className="sticky top-0 z-50 shadow-custom bg-dark border-b border-light/40">
-            <div className='absolute top-0 left-0 right-0 bottom-0 h-screen bg-hero z-0' />
+        <div className="sticky top-0 z-50 shadow-custom bg-dark border-b bg-hero border-light/40">
             <Container>
                 <nav className="mx-auto max-w-7xl px-8 flex items-center justify-between py-5 relative ">
                     <Link 

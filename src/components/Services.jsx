@@ -28,10 +28,3 @@ export default function Services({ servicesData, locale, serviceTabsData }) {
     </div>
     )
 }
-
-/* <div>
-                      Are you looking for a programmer or a designer to realize your most creative ideas? Do you know how to start your business and create a Wordpress site or a Shopify online shop?
-                      </div>
-                      <div className=" flex flex-col w-1/2 ml-auto text-9xl uppercase font-black text-blue-600 relative z-0 pt-8">
-                          Design
-                      </div> */

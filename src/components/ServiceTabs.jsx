@@ -4,6 +4,7 @@ import Image from 'next/image';
 import BlockContent from '@sanity/block-content-to-react';
 import { clientConfig } from '../../lib/client';
 import { motion, useAnimation } from 'framer-motion';
+import { PiArrowRight } from "react-icons/pi";
 
 const serializers = {
     types: {
@@ -20,7 +21,6 @@ const serializers = {
         ),
     },
 };
-
 export default function ServiceTabs({ serviceTabsData, locale }) {
     const webControls = useAnimation();
     const otherTabsControls = useAnimation();
@@ -46,9 +46,8 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
     }, []);
 
     useEffect(() => {
-        // Assuming the maximum translation is 225 pixels as per your example
         const maxTranslation = 150;
-        const translationFactor = maxTranslation / window.innerHeight;  // Adjust this factor based on your needs
+        const translationFactor = maxTranslation / window.innerHeight;
         const webXValue = -scrollY * translationFactor;
         const otherTabsXValue = scrollY * translationFactor;
 
@@ -57,7 +56,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
     }, [scrollY, webControls, otherTabsControls]);
 
     return (
-        <div className="flex flex-wrap pt-10 text-light">
+        <div className="flex flex-wrap pt-10 mx-auto text-light">
             {Array.isArray(sortedServiceTabsData) &&
                 sortedServiceTabsData.map((serviceTabItem) => {
                     const localizedButton = serviceTabItem.button?.find(item => item._key === locale)?.value;
@@ -65,7 +64,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                     return (
                         <div
                             key={serviceTabItem._id}
-                            className="flex justify-center items-center">
+                            className="flex justify-center items-center mx-auto xl:w-[900px] ">
                             {serviceTabItem.tabName === "web" ? (
                                 <>
                                     <motion.div
@@ -74,28 +73,42 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                                         {serviceTabItem.tabName}
                                     </motion.div>
                                     {serviceTabItem.body && (
-                                        <div className='md:w-[40%] font-light '>
+                                        <div className='md:w-[50%] font-light '>
                                             <BlockContent
                                                 blocks={serviceTabItem.body[locale]}
                                                 serializers={serializers}
                                                 projectId={clientConfig.projectId}
                                                 dataset={clientConfig.dataset}
                                             />
-                                            <button>{localizedButton} </button>
+                                            <Link href='/'>
+                                            <button className="flex items-center justify-center gap-2 font-tab text-lg mt-3 cursor-pointer">
+                                                {localizedButton}
+                                                <PiArrowRight 
+                                                className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
+                                                />   
+                                            </button>
+                                            </Link>
                                         </div>
                                     )}
                                 </>
                             ) : (
                                 <>
                                     {serviceTabItem.body && (
-                                        <div className='md:w-[40%] font-light '>
+                                        <div className='md:w-[50%] font-light '>
                                             <BlockContent
                                                 blocks={serviceTabItem.body[locale]}
                                                 serializers={serializers}
                                                 projectId={clientConfig.projectId}
                                                 dataset={clientConfig.dataset}
                                             />
-                                            <button>{localizedButton} </button>
+                                            <Link href='/'>
+                                            <button className="flex items-center justify-center gap-2 font-tab text-lg mt-3 cursor-pointer">
+                                                {localizedButton}
+                                                <PiArrowRight 
+                                                className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
+                                                />   
+                                            </button>
+                                            </Link>
                                         </div>
                                     )}
                                     <motion.div
