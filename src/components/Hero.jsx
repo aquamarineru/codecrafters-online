@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { urlFor } from '../../lib/client';
 import { Container, Button } from '.';
 import { motion } from 'framer-motion';
+import Circle from './Circle';
 
 
 export default function Hero({ homeData, locale }) {
@@ -50,7 +51,7 @@ export default function Hero({ homeData, locale }) {
         },
       };
     return (
-        <div className='relative w-full flex items-center mx-auto'>
+        <div className='relative w-full h-screen mx-auto'>
         {Array.isArray(homeData) && homeData.map((homeItem) => {
         const localizedTitle = homeItem.title?.find(item => item._key === locale)?.value;
         const localizedSubtitle = homeItem.subtitle?.find(item => item._key === locale)?.value;
@@ -59,11 +60,11 @@ export default function Hero({ homeData, locale }) {
             return(
                 <div
                 key={homeItem._id}
-                className='absolute top-0 left-0 right-0 bottom-0 h-screen items-center bg-gradient-to-b from-dark via-dark to-hover  z-0'
+                className='absolute top-0 left-0 right-0 bottom-0 h-screen  bg-gradient-to-b from-dark via-dark to-hover flex items-center justify-between  -z-[1]'
                 >
                 <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero z-0' />
-                    <Container className='flex items-center justify-center xl:gap-16 md:gap-5' >
-                        <div className=' flex flex-row items-start gap-5 justify-center pt-16 xl:pt-48 ' >
+                    <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >
+                        <div className='flex flex-row gap-3' >
                             <motion.div 
                             variants={slideDown}
                             initial="initial"
@@ -106,10 +107,12 @@ export default function Hero({ homeData, locale }) {
                                 </div>                                      
                             </div>      
                         </div>
+                        <div className='w-full hidden md:flex md:flex-col md:gap-3'>
                         <motion.div
                         variants={slideDown}
                         initial="initial"
                         animate="animate"
+                        className=''
                         >
                             <Image
                             key={homeItem._id}
@@ -118,10 +121,12 @@ export default function Hero({ homeData, locale }) {
                             width={800}
                             height={800}
                             priority={true}
-                            className='hidden md:block md:w-[300px] lg:w-[450px] w-full h-full object-cover '
+                            className=' md:w-[300px] lg:w-[450px] w-full h-full z-20 '
                             /> 
+                            
                         </motion.div>
-                                
+                        <Circle className="" />
+                        </div>      
                     </Container>
                 </div>
                 )})

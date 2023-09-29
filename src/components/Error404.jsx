@@ -4,7 +4,7 @@ import Button from './Button'
 
 function Error404() {
   return (
-    <div className="flex items-center justify-center flex-col h-screen text-center font-sans text-gray-500 m-0 bg-dark">
+    <div className="flex items-center justify-between bg-hero flex-col h-screen text-center font-sans text-gray-500 m-0 bg-dark">
         <svg 
         width="380px" 
         height="500px" 
@@ -51,12 +51,16 @@ function Error404() {
         </svg>
         <div className="absolute transform -translate-y-1/2 -translate-x-1/2 top-1/2 left-1/2 h-52 w-[500px] text-white font-light">
         <h1 className="text-5xl font-h1 font-black leading-[46px] mb-10">404</h1>
-        <p>Page not found</p>
+        <p className="font-tag text-xl">Page not found</p>
         <div className="mt-10">
-          <div className="flex space-x-2">
+          <div className="flex items-center justify-center  ">
             <Link href='/'>
-              <button>Go back home</button>
+              <button
+              className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400  disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 md:py-6 md:px-8 md:text-lg w-full gap-4 px-6">
+                Go back Home
+              </button>
             </Link>
+           
             
           </div>
         </div>

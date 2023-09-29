@@ -1,17 +1,13 @@
 import React from "react"
 import { client } from "../../lib/client"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import {  Hero, Services, Section  } from "../components"
+import {  Hero, Services } from "../components"
 
 
 export default function Home({ homeData, servicesData, serviceTabsData, contactData, locale }) {
-  console.log(serviceTabsData)
-
   return (
     <>
-      <Section>
-        <Hero homeData={homeData} locale={locale} />
-      </Section>
+      <Hero homeData={homeData} locale={locale} />
       <Services locale={locale} servicesData={servicesData} serviceTabsData={serviceTabsData} />
     </>
   )

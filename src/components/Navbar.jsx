@@ -33,7 +33,7 @@ export default function Navbar() {
     };
 
     return(
-        <div className="sticky top-0 z-50 shadow-custom bg-dark border-b bg-hero border-light/40">
+        <div className="fixed top-0 left-0 w-full z-50 shadow-custom bg-dark border-b bg-hero border-light/40 backdrop-blur-[10px]">
             <Container>
                 <nav className="mx-auto max-w-7xl px-8 flex items-center justify-between py-5 relative ">
                     <Link 
@@ -64,7 +64,6 @@ export default function Navbar() {
                                 
                                     className="">
                                         {locale}
-                                    
                                 </Link>
                             );
                         })} 
@@ -74,7 +73,7 @@ export default function Navbar() {
                         </div>
                          
                     </div>
-                    <div className={`fixed top-0 left-0 w-full h-screen bg-dark transition-transform duration-300 ${isMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'}`} >
+                    <div className={`fixed top-0 left-0 w-full h-screen bg-dark bg-hero transition-transform duration-300 ${isMenuOpen ? 'transform translate-x-0' : 'transform -translate-x-full'}`} >
                         <div className=" flex flex-col items-center justify-center gap-10">
                             <div className='flex flex-col items-center justify-center gap-6 pt-32'>
                                 {links.map(({ href, label }, index) => (
