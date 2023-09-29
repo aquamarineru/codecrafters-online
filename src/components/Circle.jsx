@@ -1,7 +1,7 @@
 export default function Circle() {
 
     return(
-        <div className="from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[2px] border-light border-opacity-5 bg-hero bg-opacity-40 md:px-4 md:py-4 mx-auto ml-0 md:-mb-32 w-full ">
+        <div className="from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[2px] border-light border-opacity-5 bg-opacity-40 md:px-4 md:py-4 mx-auto ml-0 md:-mb-32 w-full ">
            <div className="grid md:grid-cols-2 gap-3 xl:grid-cols-4">
                 {["Performance", "Accessibility", "Best Practices", "SEO"].map((label, index) => (
                     <div className="flex flex-col items-center" key={label}>

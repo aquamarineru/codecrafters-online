@@ -51,7 +51,7 @@ export default function Hero({ homeData, locale }) {
         },
       };
     return (
-        <div className='relative w-full h-screen mx-auto'>
+        <div className='relative h-screen w-full flex items-center mx-auto'>
         {Array.isArray(homeData) && homeData.map((homeItem) => {
         const localizedTitle = homeItem.title?.find(item => item._key === locale)?.value;
         const localizedSubtitle = homeItem.subtitle?.find(item => item._key === locale)?.value;
@@ -60,9 +60,9 @@ export default function Hero({ homeData, locale }) {
             return(
                 <div
                 key={homeItem._id}
-                className='absolute top-0 left-0 right-0 bottom-0 h-screen  bg-gradient-to-b from-dark via-dark to-hover flex items-center justify-between  -z-[1]'
+                className='absolute  top-0 left-0 right-0 bottom-0  bg-gradient-to-b from-dark via-dark to-hover flex items-center justify-between z-0'
                 >
-                <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero z-0' />
+                <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
                     <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >
                         <div className='flex flex-row gap-3' >
                             <motion.div 
@@ -88,11 +88,11 @@ export default function Hero({ homeData, locale }) {
                                 className=' text-light/80 z-20 text-base md:text-xl xl:text-2xl font-tag md:w-[350px] xl:w-[450px]'>
                                 {localizedSubtitle}
                                 </motion.h2>  
-                                <div className='py-10 z-20 cursor-pointer flex flex-col lg:flex-row items-start  lg:items-center gap-5'>
+                                <div className='py-10 z-50 cursor-pointer flex flex-col lg:flex-row items-start  lg:items-center gap-5'>
                                     <Link 
                                     href="/#contact" >
                                         <Button 
-                                        className='cursor-pointer hover:bg-dark/60 text-sm hover:text-light'>
+                                        className='hover:bg-dark/60 text-sm z-50 hover:text-light'>
                                         {localizedButton}
                                         </Button>
                                     </Link>
@@ -112,7 +112,6 @@ export default function Hero({ homeData, locale }) {
                         variants={slideDown}
                         initial="initial"
                         animate="animate"
-                        className=''
                         >
                             <Image
                             key={homeItem._id}
@@ -121,7 +120,7 @@ export default function Hero({ homeData, locale }) {
                             width={800}
                             height={800}
                             priority={true}
-                            className=' md:w-[300px] lg:w-[450px] w-full h-full z-20 '
+                            className=' md:w-[300px] lg:w-[450px] w-full h-full  '
                             /> 
                             
                         </motion.div>
