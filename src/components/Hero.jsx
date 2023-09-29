@@ -64,7 +64,7 @@ export default function Hero({ homeData, locale }) {
                 >
                 <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
                     <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >
-                        <div className='flex flex-row gap-3' >
+                        <div className='flex flex-row items-start gap-3' >
                             <motion.div 
                             variants={slideDown}
                             initial="initial"
@@ -124,7 +124,7 @@ export default function Hero({ homeData, locale }) {
                             /> 
                             
                         </motion.div>
-                        <Circle className="" />
+                        <Circle />
                         </div>      
                     </Container>
                 </div>
