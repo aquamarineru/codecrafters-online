@@ -16,6 +16,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero": "url('/bg.png')",
+        'glass': 'linear-gradient(113.9deg, rgba(255,255,255,0.03) 17.93%, rgba(255,255,255,0.05) 44.28%, rgba(255,255,255,0.05) 63.93%, rgba(255,255,255,0.03) 88.25%)'
       },
       fontFamily: {
         h1: ['IBM Plex Sans', 'sans-serif'],

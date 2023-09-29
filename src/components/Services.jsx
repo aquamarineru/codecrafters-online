@@ -3,7 +3,7 @@ import { ServiceTabs, Container } from '.';
 
 export default function Services({ servicesData, locale, serviceTabsData }) {
     return (
-        <div className="bg-hover h-screen w-full bg-hero pt-24">
+        <div className="bg-hover h-screen w-full bg-hero">
           <Container>
             {
               Array.isArray(servicesData) && servicesData.map((serviceItem) => {
@@ -13,13 +13,12 @@ export default function Services({ servicesData, locale, serviceTabsData }) {
                 );                
                 return (
                   <>
-                    <h2 className='uppercase font-h1 text-3xl text-center font-black md:text-7xl text-gray/30'>{localizedTitle} </h2>
-                    <h3 className='hidden md:block uppercase font-h1 text-left  md:text-5xl text-light font-light'>
+                    <h2 className='uppercase font-h1 text-4xl text-center font-black md:text-7xl text-gray/20'>{localizedTitle} </h2>
+                    <h3 className='text-2xl uppercase font-h1 text-left  md:text-5xl text-light font-light'>
                     {localizedTitle}
                     </h3>
-                    <div className=''>
                       <ServiceTabs serviceTabsData={serviceTabsData} locale={locale} />
-                    </div>
+                    <button> Learn more </button>
                   </>
                 )
               })

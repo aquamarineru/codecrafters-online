@@ -6,6 +6,7 @@ import { clientConfig } from '../../lib/client';
 import { motion, useAnimation } from 'framer-motion';
 import { PiArrowRight } from "react-icons/pi";
 
+
 const serializers = {
     types: {
         mainImage: (props) => (
@@ -56,7 +57,8 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
     }, [scrollY, webControls, otherTabsControls]);
 
     return (
-        <div className="flex flex-wrap pt-10 mx-auto text-light">
+        <div className="flex flex-wrap gap-3 pt-10 mx-auto text-light">
+
             {Array.isArray(sortedServiceTabsData) &&
                 sortedServiceTabsData.map((serviceTabItem) => {
                     const localizedButton = serviceTabItem.button?.find(item => item._key === locale)?.value;
@@ -73,7 +75,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                                         {serviceTabItem.tabName}
                                     </motion.div>
                                     {serviceTabItem.body && (
-                                        <div className='md:w-[50%] font-light '>
+                                        <div className='md:w-[50%] font-light from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[1px] border-light border-opacity-20 px-8 py-4 bg-opacity-40 bg-glass'>
                                             <BlockContent
                                                 blocks={serviceTabItem.body[locale]}
                                                 serializers={serializers}
@@ -94,7 +96,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                             ) : (
                                 <>
                                     {serviceTabItem.body && (
-                                        <div className='md:w-[50%] font-light '>
+                                        <div className='md:w-[50%] font-light from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[1px] border-light border-opacity-20 px-8 py-4 bg-opacity-40 bg-glass'>
                                             <BlockContent
                                                 blocks={serviceTabItem.body[locale]}
                                                 serializers={serializers}
@@ -119,6 +121,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                                 </>
                             )}
                         </div>
+
                     )
                 })
             }
