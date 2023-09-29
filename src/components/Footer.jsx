@@ -4,9 +4,9 @@ import { Container } from '.';
 export default function Footer() {
 
     return (
-        <div className='sticky top-0 z-50 shadow-custom bg-dark/80 '>
+        <div className='fixed bottom-0 z-50 shadow-custom bg-dark bg-hero w-full '>
             <Container>
-                <div>footer</div>
+                <div className='text-light'>footer</div>
             </Container>
         </div>
     )
