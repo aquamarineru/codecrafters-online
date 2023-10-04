@@ -16,3 +16,4 @@ export { default as HowWeWork } from './HowWeWork';
 export { default as About } from './About';
 export { default as Statistic } from './Statistic';
 export { default as ProjectHero } from './ProjectHero';
+export { default as FAQ } from './FAQ';

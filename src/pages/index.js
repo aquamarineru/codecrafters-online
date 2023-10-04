@@ -1,18 +1,19 @@
 import React from "react"
 import { client } from "../../lib/client"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import {  Hero, HowWeWork, Services, Statistic, ProjectHero } from "../components"
+import {  Hero, HowWeWork, Services, Statistic, ProjectHero, FAQ } from "../components"
 
 
-export default function Home({ homeData, aboutData, projectData, servicesData, serviceTabsData, statisticData, contactData, locale }) {
-  console.log(projectData)
+export default function Home({ homeData, aboutData, projectData, servicesData, serviceTabsData, statisticData, faqData, contactData, locale }) {
+  console.log(faqData)
   return (
     <>
       <Hero homeData={homeData} locale={locale} />
       <HowWeWork aboutData={aboutData} locale={locale} />
       <ProjectHero projectData={projectData}  locale={locale} />
-      <Services locale={locale} servicesData={servicesData} serviceTabsData={serviceTabsData} />
+      {/* <Services locale={locale} servicesData={servicesData} serviceTabsData={serviceTabsData} />
       <Statistic statisticData={statisticData} locale={locale} />
+      <FAQ faqData={faqData} locale={locale}  /> */}
     </>
   )
 }
@@ -86,7 +87,17 @@ export async function getStaticProps({ locale }) {
         description,
       }
     }`
-
+    const faqQuery = `*[_type == "faq"]{
+      _id,
+      title,
+      description,
+      faqPoints[]->{
+        _id,
+        title,
+        body,
+        language,
+      }
+    }`
     const contactQuery = `*[_type == "contact"]{
       _id,
       title,
@@ -100,6 +111,7 @@ export async function getStaticProps({ locale }) {
     const servicesData = await client.fetch(servicesQuery, { language: locale })
     const serviceTabsData = await client.fetch(serviceTabQuery, { language: locale })
     const statisticData = await client.fetch(statisticQuery)
+    const faqData = await client.fetch(faqQuery)
     const contactData = await client.fetch(contactQuery)
 
     return {
@@ -110,6 +122,7 @@ export async function getStaticProps({ locale }) {
         servicesData,
         serviceTabsData,
         statisticData,
+        faqData,
         contactData,
         locale: locale,
         ...(await serverSideTranslations(locale, ['common'])),

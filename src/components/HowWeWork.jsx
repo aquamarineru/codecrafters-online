@@ -6,7 +6,7 @@ import { PiArrowRight } from "react-icons/pi";
 import { Container, Button } from '.';
 export default function HowWeWork({ aboutData, locale }) {
     return (
-        <div className='w-full h-full py-24 bg-hover bg-hero text-light'>
+        <div className='w-full h-full py-10 md:px-4 bg-hover bg-hero text-light'>
             {Array.isArray(aboutData) && aboutData.map((aboutItem) => {
                 const localizedTitle = aboutItem.title?.find(item => item._key === locale)?.value;
                 const localizedDescription = aboutItem.description?.find(item => item._key === locale)?.value;
@@ -14,12 +14,12 @@ export default function HowWeWork({ aboutData, locale }) {
 
                 return(
                     <div key={aboutItem._id}>
-                        <Container className="flex flex-row justify-between items-center">
-                            <div className='flex flex-col '>
-                            <h2 className="uppercase font-h1 text-4xl  font-black  text-gray/70">{localizedTitle}</h2>
-                                <p className='lowercase font-light ' > {localizedDescription} </p>
-                                <Link href='/about' className='z-50'>
-                                    <Button className="flex items-center justify-center gap-2 font-tag text-lg mt-3 cursor-pointer bg-light hover:bg-light/40 text-dark font-light pt-5">
+                        <Container className="flex flex-col md:flex-row  justify-around items-center ">
+                            <div className='flex flex-col gap-5 md:w-1/2 md:pr-10 lg:w-1/3 '>
+                            <h2 className="uppercase text-center text-4xl font-h1 md:text-5xl  font-black  text-gray/70">{localizedTitle}</h2>
+                                <p className='font-light text-base text-center' > {localizedDescription} </p>
+                                <Link href='/about'>
+                                    <Button className="flex items-center justify-center font-tag text-sm cursor-pointer bg-light hover:bg-light/40 text-dark font-light pt-5">
                                     {localizedButton}
                                     <PiArrowRight 
                                     className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
@@ -29,23 +29,30 @@ export default function HowWeWork({ aboutData, locale }) {
                                 </Link>
                             </div>
                                 
-                            <div className='grid grid-cols-2 gap-10 lg:w-[50%] '>
+                            <div className='grid grid-cols-1 pt-10 gap-5  md:grid-cols-2 md:gap-10 md:w-1/2 md:pr-4'>
                                 {
                                     aboutItem.aboutPoints?.map((point)=> {
                                         const pointTitle = point.title?.find(item => item._key === locale)?.value;
                                         const pointDescription = point.description?.find(item => item._key === locale)?.value;
-                                        const imageUrl = urlFor(point.image).url();
+                                        
                                         return(
-                                            <div key={point._id} className='flex flex-col gap-3'>
-                                                <Image src={urlFor(point.image).url()} alt={pointTitle} width={50} height={50} />
-                                                <h3 className="uppercase font-h1 text-4xl font-black  text-gray/70">{pointTitle} </h3>
-                                                <p className='font-light' >{pointDescription} </p>
+                                            <div 
+                                            key={point._id} 
+                                            className='flex flex-col gap-3'>
+                                                <Image 
+                                                src={urlFor(point.image).url()} 
+                                                alt={pointTitle} 
+                                                width={50} 
+                                                height={50}
+                                                className='shadow-md' />
+                                                <h3 className="uppercase font-h1 text-xl md:text-2xl lg:text-3xl font-black  text-gray/70">{pointTitle} </h3>
+                                                <p className='font-light text-sm lg:text-base' >{pointDescription} </p>
                                             </div>
                                         )
                                     })
                                 }
 
-                            </div>
+                            </div> 
                         </Container>
                     </div>
                 )

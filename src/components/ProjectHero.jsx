@@ -72,7 +72,7 @@ export default function ProjectDemo({ projectData, locale}) {
                                 projectId={clientConfig.projectId}
                                 dataset={clientConfig.dataset}
                                 />
-                                <Link href='/projects' className='z-50'>
+                                <Link href='/projects' className='z-20 text-dark'>
                                     <Button className="flex items-center justify-center gap-2 font-tag text-lg mt-3 cursor-pointer bg-light hover:bg-light/40 text-dark font-light pt-5">
                                     {localizedButton}
                                     <PiArrowRight 

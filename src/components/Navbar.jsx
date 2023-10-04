@@ -52,7 +52,7 @@ export default function Navbar() {
                         onClick={toggleDropdown}>
                         <span className="bg-hover px-4 py-2 rounded-xl uppercase text-light font-bold text-sm">{activeLocal} </span>
                        {isDropdownOpen && (
-                        <div className="absolute left-0 mt-2 bg-dark/90 rounded-xl uppercase text-sm text-light px-4 py-2 z-10">
+                        <div className="absolute left-0 mt-2 bg-dark/90 rounded-xl uppercase text-sm text-light px-4 py-2 z-0">
                              {otherLocales.map((locale, localeIndex) => {
                             const { pathname, query} = router;
                             return (

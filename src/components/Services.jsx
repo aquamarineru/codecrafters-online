@@ -19,7 +19,7 @@ export default function Services({ servicesData, locale, serviceTabsData }) {
                   <Container className='z-20 flex flex-col items-center justify-center'>
                     <h2 className='uppercase font-h1 text-4xl text-center font-black md:text-7xl text-gray/20'>{localizedTitle} </h2>
                       <ServiceTabs serviceTabsData={serviceTabsData} locale={locale} />
-                      <Link href='/services' className='z-50'>
+                      <Link href='/services' className='z-10'>
                         <Button className="flex items-center justify-center gap-2 font-tag text-lg mt-3 cursor-pointer text-light font-light pt-5">
                           {localizedButton}
                           <PiArrowRight 
