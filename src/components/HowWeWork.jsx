@@ -14,9 +14,9 @@ export default function HowWeWork({ aboutData, locale }) {
 
                 return(
                     <div key={aboutItem._id}>
-                        <Container className="flex flex-col md:flex-row  justify-around items-center ">
-                            <div className='flex flex-col gap-5 md:w-1/2 md:pr-10 lg:w-1/3 '>
-                            <h2 className="uppercase text-center text-4xl font-h1 md:text-5xl  font-black  text-gray/70">{localizedTitle}</h2>
+                        <Container className="flex flex-col md:flex-row gap-5  justify-around items-center ">
+                            <div className='flex flex-col gap-5 md:w-1/3 '>
+                            <h2 className="uppercase text-center text-4xl font-h1  font-black  text-gray/70">{localizedTitle}</h2>
                                 <p className='font-light text-base text-center' > {localizedDescription} </p>
                                 <Link href='/about'>
                                     <button className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-sm w-full gap-2 px-6">
@@ -29,7 +29,7 @@ export default function HowWeWork({ aboutData, locale }) {
                                 </Link>
                             </div>
                                 
-                            <div className='grid grid-cols-1 pt-10 gap-10  md:grid-cols-2 md:gap-10 md:w-1/2 md:pr-4'>
+                            <div className='grid grid-cols-1 pt-10 gap-10  md:grid-cols-2 md:gap-10 md:w-2/3 '>
                                 {
                                     aboutItem.aboutPoints?.map((point)=> {
                                         const pointTitle = point.title?.find(item => item._key === locale)?.value;
@@ -38,7 +38,7 @@ export default function HowWeWork({ aboutData, locale }) {
                                         return(
                                             <div 
                                             key={point._id} 
-                                            className='flex flex-col gap-3 from-white-5 to-white-10 rounded border-[1px] border-light border-opacity-20 px-4 py-8 bg-opacity-40 bg-glass relative'>
+                                            className='flex flex-col gap-3 from-white-5 to-white-10 rounded border-[1px] border-light border-opacity-20 px-4 py-8 md:px-3 md:py-8 lg:px-6 lg:py-10 bg-opacity-40 bg-glass relative'>
                                                 <Image 
                                                 src={urlFor(point.image).url()} 
                                                 alt={pointTitle} 
