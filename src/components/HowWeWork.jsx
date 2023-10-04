@@ -19,17 +19,17 @@ export default function HowWeWork({ aboutData, locale }) {
                             <h2 className="uppercase text-center text-4xl font-h1 md:text-5xl  font-black  text-gray/70">{localizedTitle}</h2>
                                 <p className='font-light text-base text-center' > {localizedDescription} </p>
                                 <Link href='/about'>
-                                    <Button className="flex items-center justify-center font-tag text-sm cursor-pointer bg-light hover:bg-light/40 text-dark font-light pt-5">
+                                    <button className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-sm w-full gap-2 px-6">
                                     {localizedButton}
                                     <PiArrowRight 
                                     className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
                                     /> 
                                        
-                                    </Button>
+                                    </button>
                                 </Link>
                             </div>
                                 
-                            <div className='grid grid-cols-1 pt-10 gap-5  md:grid-cols-2 md:gap-10 md:w-1/2 md:pr-4'>
+                            <div className='grid grid-cols-1 pt-10 gap-10  md:grid-cols-2 md:gap-10 md:w-1/2 md:pr-4'>
                                 {
                                     aboutItem.aboutPoints?.map((point)=> {
                                         const pointTitle = point.title?.find(item => item._key === locale)?.value;
@@ -38,13 +38,13 @@ export default function HowWeWork({ aboutData, locale }) {
                                         return(
                                             <div 
                                             key={point._id} 
-                                            className='flex flex-col gap-3'>
+                                            className='flex flex-col gap-3 from-white-5 to-white-10 rounded border-[1px] border-light border-opacity-20 px-4 py-8 bg-opacity-40 bg-glass relative'>
                                                 <Image 
                                                 src={urlFor(point.image).url()} 
                                                 alt={pointTitle} 
                                                 width={50} 
                                                 height={50}
-                                                className='shadow-md' />
+                                                className='absolute -top-[30px] shadow-md' />
                                                 <h3 className="uppercase font-h1 text-xl md:text-2xl lg:text-3xl font-black  text-gray/70">{pointTitle} </h3>
                                                 <p className='font-light text-sm lg:text-base' >{pointDescription} </p>
                                             </div>
