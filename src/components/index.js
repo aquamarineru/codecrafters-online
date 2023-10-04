@@ -12,3 +12,7 @@ export { default as Section } from './Section';
 export { default as Services } from './Services';
 export { default as ServiceTabs } from './ServiceTabs';
 export { default as Error404 } from './Error404';
+export { default as HowWeWork } from './HowWeWork';
+export { default as About } from './About';
+export { default as Statistic } from './Statistic';
+export { default as ProjectHero } from './ProjectHero';

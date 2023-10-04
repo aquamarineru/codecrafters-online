@@ -1,14 +1,18 @@
 import React from "react"
 import { client } from "../../lib/client"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import {  Hero, Services } from "../components"
+import {  Hero, HowWeWork, Services, Statistic, ProjectHero } from "../components"
 
 
-export default function Home({ homeData, servicesData, serviceTabsData, contactData, locale }) {
+export default function Home({ homeData, aboutData, projectData, servicesData, serviceTabsData, statisticData, contactData, locale }) {
+  console.log(projectData)
   return (
     <>
       <Hero homeData={homeData} locale={locale} />
+      <HowWeWork aboutData={aboutData} locale={locale} />
+      <ProjectHero projectData={projectData}  locale={locale} />
       <Services locale={locale} servicesData={servicesData} serviceTabsData={serviceTabsData} />
+      <Statistic statisticData={statisticData} locale={locale} />
     </>
   )
 }
@@ -26,6 +30,27 @@ export async function getStaticProps({ locale }) {
       "videoFileUrl": videoAnimation.fallback.asset->url,
       button,
       btn,
+    }`
+
+    const aboutQuery = `*[_type == "about"]{
+      _id,
+      title,
+      description,
+      button,
+      aboutPoints[]->{
+        _id,
+        title,
+        description,
+        image,
+      }
+    }`
+    const projectQuery = `*[_type == "project"]{
+      _id,
+      title,
+      image,
+      body,
+      button,
+      language,
     }`
     const servicesQuery = `*[_type == "services"]{
       _id,
@@ -51,6 +76,17 @@ export async function getStaticProps({ locale }) {
       button,
     }`
 
+    const statisticQuery = `*[_type == "statistic"]{
+      _id,
+      title,
+      description,
+      statisticNumbers[]->{
+        _id,
+        title,
+        description,
+      }
+    }`
+
     const contactQuery = `*[_type == "contact"]{
       _id,
       title,
@@ -59,15 +95,21 @@ export async function getStaticProps({ locale }) {
       button,
     }`
     const homeData = await client.fetch(homeQuery)
+    const aboutData = await client.fetch(aboutQuery)
+    const projectData = await client.fetch(projectQuery)
     const servicesData = await client.fetch(servicesQuery, { language: locale })
     const serviceTabsData = await client.fetch(serviceTabQuery, { language: locale })
+    const statisticData = await client.fetch(statisticQuery)
     const contactData = await client.fetch(contactQuery)
 
     return {
       props: {
         homeData,
+        aboutData,
+        projectData,
         servicesData,
         serviceTabsData,
+        statisticData,
         contactData,
         locale: locale,
         ...(await serverSideTranslations(locale, ['common'])),

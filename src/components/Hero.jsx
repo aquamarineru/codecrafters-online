@@ -51,7 +51,7 @@ export default function Hero({ homeData, locale }) {
         },
       };
     return (
-        <div className='relative h-screen w-full flex items-center mx-auto'>
+        <div className='relative h-screen w-full flex  items-center mx-auto'>
         {Array.isArray(homeData) && homeData.map((homeItem) => {
         const localizedTitle = homeItem.title?.find(item => item._key === locale)?.value;
         const localizedSubtitle = homeItem.subtitle?.find(item => item._key === locale)?.value;
@@ -64,7 +64,7 @@ export default function Hero({ homeData, locale }) {
                 >
                 <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
                     <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >
-                        <div className='flex flex-row items-start gap-3' >
+                        <div className='flex flex-row items-start gap-3 order-2 md:order-1 z-20' >
                             <motion.div 
                             variants={slideDown}
                             initial="initial"
@@ -107,7 +107,7 @@ export default function Hero({ homeData, locale }) {
                                 </div>                                      
                             </div>      
                         </div>
-                        <div className='w-full hidden md:flex md:flex-col md:gap-3'>
+                        <div className='w-full order-1 md:order-2 z-10 md:flex md:flex-col md:gap-3'>
                         <motion.div
                         variants={slideDown}
                         initial="initial"
@@ -119,12 +119,12 @@ export default function Hero({ homeData, locale }) {
                             alt={homeItem.title}
                             width={800}
                             height={800}
-                            priority={true}
+                            property={homeItem.image.asset._ref}
                             className=' md:w-[300px] lg:w-[450px] w-full h-full  '
                             /> 
                             
                         </motion.div>
-                        <Circle />
+                        <Circle className='' />
                         </div>      
                     </Container>
                 </div>

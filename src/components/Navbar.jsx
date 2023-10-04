@@ -8,8 +8,8 @@ import { TfiClose } from 'react-icons/tfi';
 
 const links = [
     { href: '/', label: 'home' },
+    { href: '/about', label: 'why us?' },
     { href: '/#services', label: 'our services' },
-    { href: '/#why-us', label: 'why us?' },
     { href: '/projects', label: 'projects' },
     { href: '/#fqa', label: 'fqa' },
     { href: '/blog', label: 'blog' },

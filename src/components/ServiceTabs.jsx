@@ -4,7 +4,7 @@ import Image from 'next/image';
 import BlockContent from '@sanity/block-content-to-react';
 import { clientConfig } from '../../lib/client';
 import { motion, useAnimation } from 'framer-motion';
-import { PiArrowRight } from "react-icons/pi";
+
 
 
 const serializers = {
@@ -47,7 +47,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
     }, []);
 
     useEffect(() => {
-        const maxTranslation = 150;
+        const maxTranslation = 100;
         const translationFactor = maxTranslation / window.innerHeight;
         const webXValue = -scrollY * translationFactor;
         const otherTabsXValue = scrollY * translationFactor;
@@ -61,12 +61,11 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
 
             {Array.isArray(sortedServiceTabsData) &&
                 sortedServiceTabsData.map((serviceTabItem) => {
-                    const localizedButton = serviceTabItem.button?.find(item => item._key === locale)?.value;
                     const controls = serviceTabItem.tabName === "web" ? webControls : otherTabsControls;
                     return (
                         <div
                             key={serviceTabItem._id}
-                            className="flex justify-center items-center mx-auto xl:w-[900px] ">
+                            className="flex justify-center items-center mx-auto md:w-[650px] md:px-10 lg:w-[900px] ">
                             {serviceTabItem.tabName === "web" ? (
                                 <>
                                     <motion.div
@@ -75,42 +74,27 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                                         {serviceTabItem.tabName}
                                     </motion.div>
                                     {serviceTabItem.body && (
-                                        <div className='md:w-[50%] font-light from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[1px] border-light border-opacity-20 px-8 py-4 bg-opacity-40 bg-glass'>
+                                        <div className='md:w-[50%] font-light text-sm lg:text-base from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[1px] border-light border-opacity-20 px-8 py-4 md:p-4 bg-opacity-40 bg-glass'>
                                             <BlockContent
                                                 blocks={serviceTabItem.body[locale]}
                                                 serializers={serializers}
                                                 projectId={clientConfig.projectId}
                                                 dataset={clientConfig.dataset}
                                             />
-                                            <Link href='/'>
-                                            <button className="flex items-center justify-center gap-2 font-tab text-lg mt-3 cursor-pointer">
-                                                {localizedButton}
-                                                <PiArrowRight 
-                                                className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
-                                                />   
-                                            </button>
-                                            </Link>
+                                            
                                         </div>
                                     )}
                                 </>
                             ) : (
                                 <>
                                     {serviceTabItem.body && (
-                                        <div className='md:w-[50%] font-light from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[1px] border-light border-opacity-20 px-8 py-4 bg-opacity-40 bg-glass'>
+                                        <div className='md:w-[50%] font-light text-sm lg:text-base from-white-5 to-white-10 max-w-[calc(100%-2rem)] rounded-xl border-[1px] border-light border-opacity-20 px-8 py-4 md:p-4 bg-opacity-40 bg-glass'>
                                             <BlockContent
                                                 blocks={serviceTabItem.body[locale]}
                                                 serializers={serializers}
                                                 projectId={clientConfig.projectId}
                                                 dataset={clientConfig.dataset}
                                             />
-                                            <Link href='/'>
-                                            <button className="flex items-center justify-center gap-2 font-tab text-lg mt-3 cursor-pointer">
-                                                {localizedButton}
-                                                <PiArrowRight 
-                                                className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
-                                                />   
-                                            </button>
-                                            </Link>
                                         </div>
                                     )}
                                     <motion.div
