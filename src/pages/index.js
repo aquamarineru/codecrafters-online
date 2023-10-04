@@ -11,9 +11,9 @@ export default function Home({ homeData, aboutData, projectData, servicesData, s
       <Hero homeData={homeData} locale={locale} />
       <HowWeWork aboutData={aboutData} locale={locale} />
       <ProjectHero projectData={projectData}  locale={locale} />
-      {/* <Services locale={locale} servicesData={servicesData} serviceTabsData={serviceTabsData} />
+      <Services locale={locale} servicesData={servicesData} serviceTabsData={serviceTabsData} />
       <Statistic statisticData={statisticData} locale={locale} />
-      <FAQ faqData={faqData} locale={locale}  /> */}
+      <FAQ faqData={faqData} locale={locale}  />
     </>
   )
 }

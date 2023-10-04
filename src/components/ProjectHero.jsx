@@ -21,17 +21,17 @@ const serializers = {
         block: (props) => {
             switch (props.node.style) {
                 case 'h2':
-                    return <h2 className="text-3xl font-semibold font-h1 mb-5 text-center text-light/80">{props.children}</h2>;
+                    return <h2 className=" text-xl md:text-3xl font-semibold font-h1 mb-5 text-center text-light/80">{props.children}</h2>;
                 case 'h3':
                     return <h3 className="text-2xl font-medium mb-4">{props.children}</h3>;
                 case 'normal':
-                    return <p className="text-base font-light mb-4">{props.children}</p>;
+                    return <p className="text-sm md:text-base font-light mb-4">{props.children}</p>;
                 case 'bullet':
-                    return <ul className="list-disc pl-6 mb-4 font-light"><li className="mb-2">{props.children}</li></ul>;
+                    return <ul className="list-disc pl-6 mb-4 font-light text-sm md:text-base"><li className="mb-2">{props.children}</li></ul>;
                 case 'number':
                     return <ol className="list-decimal pl-6 mb-4 font-light"><li className="mb-2">{props.children}</li></ol>;
                 default:
-                    return <p className="text-base font-light mb-4">{props.children}</p>;
+                    return <p className=" text-sm md:text-base font-light mb-4">{props.children}</p>;
             }
         },
         listItem: (props) => <li className="mb-2">{props.children}</li>,

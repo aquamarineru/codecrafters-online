@@ -9,17 +9,7 @@ import { motion, useAnimation } from 'framer-motion';
 
 const serializers = {
     types: {
-        mainImage: (props) => (
-            <div className="">
-                <Image
-                    src={props.node.asset.url}
-                    alt={props.node.alt}
-                    className="w-full h-auto"
-                    width={1000}
-                    height={800}
-                />
-            </div>
-        ),
+        
     },
 };
 export default function ServiceTabs({ serviceTabsData, locale }) {
@@ -48,7 +38,17 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
 
     useEffect(() => {
         const maxTranslation = 100;
-        const translationFactor = maxTranslation / window.innerHeight;
+        const isMdBreakpoint = window.innerWidth >= 768 && window.innerWidth < 1024;
+        const isLgBreakpoint = window.innerWidth >= 1024 && window.innerWidth < 1280; // Assuming lg breakpoint is between 1024px and 1280px
+
+        let translationFactor = maxTranslation / window.innerHeight;
+
+        if (isMdBreakpoint) {
+            translationFactor *= 0.15;
+        } else if (isLgBreakpoint) {
+            translationFactor *= 0.2; // Reduced even further for lg breakpoint, adjust as needed
+        }
+
         const webXValue = -scrollY * translationFactor;
         const otherTabsXValue = scrollY * translationFactor;
 
