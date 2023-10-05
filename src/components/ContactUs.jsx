@@ -39,7 +39,7 @@ export default function ContactUs({ contactData, locale}) {
                             alt={item.image.alt}
                             width={1000}
                             height={800}
-                            className='object-cover w-full h-full -z-10'
+                            className='object-cover w-full h-full -z-10 opacity-60'
                         />
                         <div className='absolute top-[40%] transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark px-16 py-24 rounded w-[40%]'>
                             <div className='flex flex-col justify-between items-start gap-10 pl-10'>
