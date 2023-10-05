@@ -70,7 +70,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                                 <>
                                     <motion.div
                                         animate={controls}
-                                        className='hidden md:block md:text-6xl xl:text-9xl uppercase font-black text-blue-600 relative z-0 pt-8 text-gray/70'>
+                                        className='hidden md:block md:text-6xl xl:text-9xl uppercase font-black text-blue-600 relative  pt-8 text-gray/70'>
                                         {serviceTabItem.tabName}
                                     </motion.div>
                                     {serviceTabItem.body && (
@@ -99,7 +99,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
                                     )}
                                     <motion.div
                                         animate={controls}
-                                        className='hidden md:block md:text-6xl xl:text-9xl uppercase font-black text-blue-600 relative z-0 pt-8 text-gray/70'>
+                                        className='hidden md:block md:text-6xl xl:text-9xl uppercase font-black text-blue-600 relative  pt-8 text-gray/70'>
                                         {serviceTabItem.tabName}
                                     </motion.div>
                                 </>

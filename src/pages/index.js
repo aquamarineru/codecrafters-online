@@ -1,7 +1,7 @@
 import React from "react"
 import { client } from "../../lib/client"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import {  Hero, HowWeWork, Services, Statistic, ProjectHero, FAQ } from "../components"
+import {  Hero, HowWeWork, Services, Statistic, ProjectHero, FAQ, ContactUs } from "../components"
 
 
 export default function Home({ homeData, aboutData, projectData, servicesData, serviceTabsData, statisticData, faqData, contactData, locale }) {
@@ -14,6 +14,7 @@ export default function Home({ homeData, aboutData, projectData, servicesData, s
       <Services locale={locale} servicesData={servicesData} serviceTabsData={serviceTabsData} />
       <Statistic statisticData={statisticData} locale={locale} />
       <FAQ faqData={faqData} locale={locale}  />
+      <ContactUs contactData={contactData} locale={locale} />
     </>
   )
 }
@@ -103,6 +104,9 @@ export async function getStaticProps({ locale }) {
       title,
       subtitle,
       image,
+      termsAgreement,
+      termsText,
+      language,
       button,
     }`
     const homeData = await client.fetch(homeQuery)

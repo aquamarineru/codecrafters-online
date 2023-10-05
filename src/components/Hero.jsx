@@ -3,7 +3,7 @@ import { PiCalendarBlankThin } from 'react-icons/pi'
 import Link from 'next/link';
 import Image from 'next/image';
 import { urlFor } from '../../lib/client';
-import { Container, Button } from '.';
+import { Container, Button, Social } from '.';
 import { motion } from 'framer-motion';
 import Circle from './Circle';
 

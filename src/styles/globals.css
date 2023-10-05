@@ -33,21 +33,39 @@
         display: inline-block;
     }
 
-  .before-element::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: #fff;
-    transition: width 0.3s;
-  }
+    .before-element::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s;
+    }
 
-  .before-element:hover::before {
-    width: 100%;
-    background: #3c6e71;
-  }
+    .before-element:hover::before {
+      width: 100%;
+      background: #fff;
+    }
+    .after-element {
+    position: relative;
+    display: inline-block;
+}
+
+
+.after-element::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 1rem; 
+  transform: translateY(-50%);
+  background: #fff;
+}
 }
 @font-face {
     font-family: "light";
