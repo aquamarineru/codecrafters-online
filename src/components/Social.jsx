@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Social() {
     return (
-        <div className='fixed left-8 bottom-24 z-50 space-y-4'>
+        <div className='fixed left-3 bottom-24 z-50 space-y-4'>
             <div className='after-element fixed bottom-10' />
             <ShareButton iconSrc="/twitter.svg" text="share on twitter" href="https://twitter.com" />
             <ShareButton iconSrc="/fb.svg" text="share on facebook" href="https://facebook.com" />
@@ -23,7 +23,7 @@ function ShareButton({iconSrc, text, href}){
         rel='noopener noreferrer'
         target='_blank'
         className="relative h-7 group block">
-                <div className="absolute w-8 h-8 bg-white rounded-full top-1/2 transform -translate-y-1/2 left-0 hover:shadow group-hover:translate-x-px z-10">
+                <div className="absolute w-8 h-8 bg-white rounded-full top-1/2 transform -translate-y-1/2 hover:shadow group-hover:translate-x-px z-10">
                     <Image src={iconSrc} alt={text} width={30} height={30} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                 </div>
                 <div className="overflow-hidden ml-4 h-7">

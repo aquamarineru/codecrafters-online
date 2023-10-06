@@ -18,3 +18,5 @@ export { default as Statistic } from './Statistic';
 export { default as ProjectHero } from './ProjectHero';
 export { default as FAQ } from './FAQ';
 export { default as ContactForm } from './ContactForm';
+export { default as PostGrid } from './PostGrid';
+export { default as Post } from './Post';
