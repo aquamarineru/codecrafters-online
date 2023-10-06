@@ -33,15 +33,15 @@ export default function ContactUs({ contactData, locale}) {
                 const localizedTermsText = item.termsText[locale];
 
                 return (
-                    <div className='flex flex-col justify-center items-center w-full h-full z-0' key={item._id}>
+                    <div className='flex flex-col justify-center items-center w-full h-screen md:h-full z-0' key={item._id}>
                         <Image
                             src={urlFor(item.image).url()}
                             alt={item.image.alt}
                             width={1000}
                             height={800}
-                            className='object-cover w-full h-full -z-10 opacity-60'
+                            className='object-cover w-full h-screen -z-10 opacity-60'
                         />
-                        <div className='absolute top-[40%] transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark px-16 py-24 rounded w-[40%]'>
+                        <div className='hidden lg:block absolute top-[40%] transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark px-16 py-24 rounded w-[40%]'>
                             <div className='flex flex-col justify-between items-start gap-10 pl-10'>
                                 <h2 className='font-black font-h1 text-4xl md:text-5xl text-gray '> 
                                 Have a project in mind? 
@@ -58,10 +58,10 @@ export default function ContactUs({ contactData, locale}) {
                             </div>
                             
                         </div>
-                        <div className='absolute top-1/2 left-2/3 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark/80 px-24 py-24 rounded'>
-                            <h2 className='font-black font-h1 text-4xl md:text-5xl text-gray'>{localizedTitle}</h2>
-                            <p className='text-light font-light mt-5'>{localizedSubtitle}</p>
-                            <div className="flex justify-around items-center pt-10 font-tag">
+                        <div className='absolute top-1/2 left-1/2 xl:top-1/2 lg:left-2/3 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark/80 px-10 py-8 sm:px-16 xl:px-24 xl:py-24 rounded'>
+                            <h2 className='font-black font-h1 text-xl md:text-5xl text-gray'>{localizedTitle}</h2>
+                            <p className='text-light font-light mt-5 text-sm'>{localizedSubtitle}</p>
+                            <div className="flex justify-around text-sm items-center pt-5 font-tag">
                                 <form action="#">
                                 <div className='relative mb-2 h-[4rem]'>
                                 <label
