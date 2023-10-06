@@ -58,8 +58,8 @@ export default function ContactUs({ contactData, locale}) {
                             </div>
                             
                         </div>
-                        <div className='absolute top-1/2 left-1/2 xl:top-1/2 lg:left-2/3 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark/80 px-10 py-8 sm:px-16 xl:px-24 xl:py-24 rounded'>
-                            <h2 className='font-black font-h1 text-xl md:text-5xl text-gray'>{localizedTitle}</h2>
+                        <div className='absolute top-1/2 left-1/2 xl:top-1/2 lg:left-2/3 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark/80 px-5 py-5 w-[300px] md:w-[350px] xl:px-24 xl:py-24 rounded'>
+                            <h2 className='font-black font-h1 text-xl md:text-2xl text-gray'>{localizedTitle}</h2>
                             <p className='text-light font-light mt-5 text-sm'>{localizedSubtitle}</p>
                             <div className="flex justify-around text-sm items-center pt-5 font-tag">
                                 <form action="#">
