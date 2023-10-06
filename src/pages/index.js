@@ -108,6 +108,10 @@ export async function getStaticProps({ locale }) {
       termsText,
       language,
       button,
+      mainTitle,
+      description,
+      btn,
+      modalBtn,
     }`
     const homeData = await client.fetch(homeQuery)
     const aboutData = await client.fetch(aboutQuery)
