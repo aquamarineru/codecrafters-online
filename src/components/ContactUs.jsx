@@ -15,7 +15,7 @@ const ModalWrapper = ({ children, isOpen, toggleModal }) => {
                 className='w-full h-full absolute top-0 left-0 bg-black/80 bg-hero' 
                 onClick={toggleModal}></div>
             <div 
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-7 bg-dark rounded shadow-lg w-[300px] md:w-[400px] ">
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-7 bg-dark bg-hero rounded shadow-lg w-[300px] md:w-[400px] ">
                 {children}
             </div>
         </>
@@ -48,8 +48,8 @@ export default function ContactUs({ contactData, locale}) {
                                 className='object-cover w-full h-screen -z-10 opacity-60'
                             />
                             <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
-                            <Container className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark rounded w-[300px] p-4 md:w-[400px] md:px-10 md:py-16 flex justify-center items-center'>
-                                <div className='flex flex-col justify-between items-start gap-10'>
+                            <Container className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark rounded w-[300px] p-4 md:w-[400px] md:px-10 md:py-16 flex justify-center items-center bg-hero'>
+                                <div className='flex flex-col justify-between items-start gap-10 '>
                                     <h2 className='font-black font-h1 text-xl md:text-2xl text-gray '>
                                         {localizedMainTitle}
                                     </h2>

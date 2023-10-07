@@ -14,33 +14,84 @@ export default async function posts(req, res) {
 }
 
 export async function loadPosts(start, end) {
+  // Separate the order and filter from the projection:
   const query = `
-{
-  "posts": *[_type == "post"] | order(publishedAt desc) [${start}...${end}] {
-    _id, 
-    button,
-    image,
-    title, 
-    subtitle,
-    tags[]->{
+    *[_type == "post"] | order(postMain[0].publishedAt desc) [${start}...${end}] {
       _id,
       title,
-    },
-    author[]->{
-      _id,
-      name,
-      bio,
-      image,
-    },
-    readTime,
-    publishedAt, 
-    slug, 
-  },
-  body,
-  language,
-  "total": count(*[_type == "post"])
+      description,
+      button,
+      "postMains": postMain[]->{
+        _id,
+        title,
+        subtitle,
+        image,
+        button,
+        publishedAt,
+        slug,
+        readTime,
+        body,
+        tags[]->{
+          _id,
+          title,
+          slug
+        },
+        author[]->{
+          _id,
+          name,
+          image,
+          bio
+        }
+      }
+    }
+  `;
+
+  // Separate the total count query:
+  const countQuery = `
+    count(*[_type == "post"])
+  `;
+
+  const posts = await client.fetch(query);
+  const total = await client.fetch(countQuery);
+  
+  return { posts, total };
 }
-`
+
+/* export async function loadPosts(start, end) {
+  const query = `
+  {
+    "posts": *[_type == "post"] | order(postMain[0].publishedAt desc) [${start}...${end}] {
+      _id,
+      title,
+      description,
+      button,
+      postMain[]->{
+        _id,
+        title,
+        subtitle,
+        image,
+        button,
+        publishedAt,
+        slug,
+        readTime,
+        body,
+        tags[]->{
+          _id,
+          title,
+          slug,
+        },
+        author[]->{
+          _id,
+          name,
+          image,
+          bio,
+        }
+      }
+    },
+    "total": count(*[_type == "post"])
+  }
+  `
+
 const { posts, total } = await client.fetch(query)
 return { posts, total }
-}
+} */

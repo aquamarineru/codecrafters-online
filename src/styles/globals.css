@@ -15,17 +15,17 @@
 }
 @layer components {
     .gradient {
-        background: #3c6e71;
-        background: linear-gradient(-90deg, #3c6e71 0%, rgba(60, 51, 80, 0) 100%);
+        background: #9959d9;
+        background: linear-gradient(-90deg, #9959d9 0%, rgba(60, 51, 80, 0) 100%);
         background: -webkit-linear-gradient(
           -90deg,
-          #3c6e71 0%,
+          #9959d9 0%,
           rgba(60, 51, 80, 0) 100%
         );
       }
       .gradient-overlay-image {
     background: 
-        linear-gradient(to bottom, #030303, #030303, #3c6e71),
+        linear-gradient(to bottom, #0f1926, #0f1926, #9959d9),
         url('/public/bg.png') no-repeat center center / cover;
         }
     .before-element {
@@ -40,13 +40,13 @@
       left: 0;
       width: 0;
       height: 1px;
-      background: #fff;
+      background: #FBFAF5;
       transition: width 0.3s;
     }
 
     .before-element:hover::before {
       width: 100%;
-      background: #fff;
+      background: #FBFAF5;
     }
     .after-element {
     position: relative;
@@ -64,7 +64,7 @@
   top: 50%;
   left: 1rem; 
   transform: translateY(-50%);
-  background: #fff;
+  background: #fbfaf5;
 }
 }
 @font-face {

@@ -8,7 +8,7 @@ import { PiArrowLeftLight } from "react-icons/pi";
 
 function AboutPage({ aboutPageData, locale }) {
     return (
-    <div className="w-full h-full bg-dark/90 bg-hero text-light">
+    <div className="w-full h-full bg-dark/95 bg-hero text-light">
         {Array.isArray(aboutPageData) && aboutPageData.map((aboutPageItem) => {
             const localizedBtn = aboutPageItem.btn.find(item => item._key === locale)?.value;
             const localizedTitle = aboutPageItem.title.find(item => item._key === locale)?.value;

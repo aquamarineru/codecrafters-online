@@ -5,7 +5,7 @@ import { PiArrowLeftLight} from 'react-icons/pi'
 
 export default function About({ }) {
     return(
-        <div className="w-full h-screen bg-hover/30 bg-hero">
+        <div className="w-full h-screen bg-basic/30 bg-hero">
             <Container className='pt-10'>
                 <Link href='/' >
                     <button className="flex items-center gap-3 before-element pt-10">

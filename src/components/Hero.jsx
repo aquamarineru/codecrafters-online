@@ -60,7 +60,7 @@ export default function Hero({ homeData, locale }) {
             return(
                 <div
                 key={homeItem._id}
-                className='absolute  top-0 left-0 right-0 bottom-0  bg-gradient-to-b from-dark via-dark to-hover flex items-center justify-between z-0'
+                className='absolute  top-0 left-0 right-0 bottom-0  bg-gradient-to-b from-dark via-dark to-basic flex items-center justify-between z-0'
                 >
                 <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
                     <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >

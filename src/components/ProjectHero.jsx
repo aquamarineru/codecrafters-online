@@ -41,7 +41,7 @@ const serializers = {
 
 export default function ProjectDemo({ projectData, locale}) {
     return (
-        <div className='w-full h-full py-10 px-3 md:py-24 bg-hover bg-hero text-light'>
+        <div className='w-full h-full py-10 px-3 md:py-24 bg-basic bg-hero text-light'>
             {Array.isArray(projectData) && projectData.map((projectItem) => {
                 const localizedTitle = projectItem.title?.find(item => item._key === locale)?.value;  
                 const localizedButton = projectItem.button?.find(item => item._key === locale)?.value;  

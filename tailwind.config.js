@@ -8,11 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#030303",
-        light: "#ffffff",
-        gray: "#d9d9d9",
-        blue: "#284b63",
-        hover: '#3c6e71'
+        dark: "#0f1926",
+        light: "#FBFAF5",
+        gray: "#d9d9d9", 
+        hover: "#9959d9",
+        hover2: "#16f2dc",   
+        basic: '#342359'
       },
       backgroundImage: {
         "hero": "url('/bg.png')",
@@ -28,3 +29,6 @@ module.exports = {
   },
   plugins: [],
 }
+
+// 0F1926 16F2DC 342359 9959D9
+

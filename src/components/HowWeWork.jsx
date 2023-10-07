@@ -6,7 +6,7 @@ import { PiArrowRight } from "react-icons/pi";
 import { Container, Button } from '.';
 export default function HowWeWork({ aboutData, locale }) {
     return (
-        <div className='w-full h-full py-10 md:px-4 bg-hover bg-hero text-light'>
+        <div className='w-full h-full py-10 md:px-4 bg-basic bg-hero text-light'>
             {Array.isArray(aboutData) && aboutData.map((aboutItem) => {
                 const localizedTitle = aboutItem.title?.find(item => item._key === locale)?.value;
                 const localizedDescription = aboutItem.description?.find(item => item._key === locale)?.value;
