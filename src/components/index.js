@@ -22,3 +22,4 @@ export { default as PostGrid } from './PostGrid';
 export { default as Post } from './Post';
 export { default as Article } from './Article';
 export { default as BodyPost } from './BodyPost';
+export { default as Content } from './Content';

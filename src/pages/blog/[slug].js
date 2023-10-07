@@ -4,7 +4,7 @@ import { BodyPost, Container, } from "@/components";
 
 export default  function Post ({ post, locale }) {
     return (
-        <div className='bg-dark bg-hero h-screen'>
+        <div className='bg-dark bg-hero h-full py-10'>
             <Container className=''>
                 <BodyPost post={post} locale={locale} />
 

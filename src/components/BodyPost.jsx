@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Article } from "."
+import { Container, Article, Content } from "."
 import { format } from 'date-fns'
 import Image from "next/image"
-import { urlFor } from "../../lib/client" 
+import { urlFor, clientConfig } from "../../lib/client" 
 import BlockContent from '@sanity/block-content-to-react';
 
 const serializers = {
@@ -38,8 +38,9 @@ const serializers = {
 };
 
 
+
 export default function BodyPost({ post, locale }){
-    const date = format(new Date(), 'dd MMM yyyy')
+    const date = format(new Date(post.publishedAt), 'dd MMM yyyy');
     const localizedTitle = post.title?.find(entry => entry._key === locale)?.value;
     console.log(post)
     return(
@@ -87,7 +88,16 @@ export default function BodyPost({ post, locale }){
                             </div>
                         )}
                 </div>
-            </div>                
+            </div> 
+            <div className="pt-10">
+            <BlockContent 
+                    blocks={post.body[locale]}
+                    serializers={serializers}
+                    projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                    dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                />
+                </div>
+                       
         </div>
     )
 }
