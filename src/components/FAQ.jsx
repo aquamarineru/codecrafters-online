@@ -72,8 +72,6 @@ export default function FAQs({ faqData, locale}) {
                         })}
 
                             </div> 
-                            
-                        
                         </Container>
                     </div>
                 )

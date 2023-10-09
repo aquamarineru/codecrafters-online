@@ -60,9 +60,9 @@ export default function Hero({ homeData, locale }) {
             return(
                 <div
                 key={homeItem._id}
-                className='absolute  top-0 left-0 right-0 bottom-0  bg-gradient-to-b from-dark via-dark to-basic flex items-center justify-between z-0'
+                className='absolute  top-0 left-0 right-0 bottom-0 bg-hero flex items-center justify-between z-0'
                 >
-                <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
+                <div className='absolute top-0 left-0 right-0 bottom-0  -z-10' />
                     <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >
                         <div className='flex flex-row items-start gap-3 order-2 md:order-1 z-20' >
                             <motion.div 
@@ -109,23 +109,24 @@ export default function Hero({ homeData, locale }) {
                             </div>      
                         </div>
                         <div className='w-full order-1 md:order-2 z-10 md:flex md:flex-col md:gap-3'>
-                        <motion.div
+                        <div
                         variants={slideDown}
                         initial="initial"
                         animate="animate"
+                        className='w-full h-full absolute top-0 left-0 z-10'
                         >
                             <Image
                             key={homeItem._id}
                             src={urlFor(homeItem.image).url()}
                             alt={homeItem.title}
-                            width={800}
+                            width={1400}
                             height={800}
                             property={homeItem.image.asset._ref}
-                            className=' md:w-[300px] lg:w-[450px] w-full h-full  '
+                            className=' w-full h-full  '
                             /> 
                             
-                        </motion.div>
-                        <Circle className='' />
+                        </div>
+{/* //<Circle className='' /> */}
                         </div>      
                     </Container>
                 </div>

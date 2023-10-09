@@ -8,7 +8,7 @@ import { PiArrowLeftLight } from "react-icons/pi";
 
 function AboutPage({ aboutPageData, locale }) {
     return (
-    <div className="w-full h-full bg-dark/95 bg-hero text-light" >
+    <div className="w-full h-full bg-dark/95 bg-hero text-light relative" >
         {Array.isArray(aboutPageData) && aboutPageData.map((aboutPageItem) => {
             const localizedBtn = aboutPageItem.btn.find(item => item._key === locale)?.value;
             const localizedTitle = aboutPageItem.title.find(item => item._key === locale)?.value;
@@ -16,28 +16,31 @@ function AboutPage({ aboutPageData, locale }) {
             const paths = [ localizedTitle]
 
             return(
-                <div key={aboutPageItem._id}>
+                <div key={aboutPageItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 50%)'}}>
                     <Breadcrumb paths={paths} />
-                    <Container className='pt-24 h-full'>
+                    <Container className='pt-24 h-full' >
                         <Link href='/' >
                             <button className="flex items-center font-tag gap-3 before-element pt-10">
                                 <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
                                 {localizedBtn}
                             </button>
                         </Link>
-                        <div className="flex items-center justify-between gap-5">
+                        <div className="flex items-center justify-between gap-5 " >
                             <div className="flex flex-col pt-5 gap-10 md:w-[50%] ">
                                 <h1 className="uppercase font-h1 text-3xl md:text-5xl  font-black  text-gray/70" >{localizedTitle} </h1>
                                 <p className="text-base md:text- font-light" > {localizedDescription} </p>
                             </div>
-                            <Image
-                            key={aboutPageItem._id}
-                            src={urlFor(aboutPageItem.image).crop('center').fit('crop').width(900).height(600).url()}
-                            width={900}
-                            height={900}
-                            className='hidden md:block rounded opacity-60 md:w-1/2 object-cover h-full z-10 shadow-custom'
-                            alt="about image"
-                            />
+                            <div className="hidden md:block">
+                                <Image
+                                key={aboutPageItem._id}
+                                src={urlFor(aboutPageItem.image).url()}
+                                width={700}
+                                height={600}
+                                className='md:absolute md:top-0 md:right-0 md:w-[500px] xl:left-1/2 rounded opacity-40 object-cover  shadow-custom'
+                                alt="about image"
+                                />
+                            </div>
+                            
 
                         </div>
                         <div className="mt-24 h-full from-white-5 to-white-10 rounded border-[1px] border-light border-opacity-20 px-8 py-10 bg-opacity-40 bg-glass flex flex-col justify-between gap-5">

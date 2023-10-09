@@ -6,7 +6,9 @@ import { PiArrowRight } from "react-icons/pi";
 import { Container, Button } from '.';
 export default function HowWeWork({ aboutData, locale }) {
     return (
-        <div className='w-full h-full py-10 md:px-4 bg-basic bg-hero text-light'>
+        <div className='w-full h-full  md:px-4 bg-hero z-10 text-light bg-basic' 
+        >
+        
             {Array.isArray(aboutData) && aboutData.map((aboutItem) => {
                 const localizedTitle = aboutItem.title?.find(item => item._key === locale)?.value;
                 const localizedDescription = aboutItem.description?.find(item => item._key === locale)?.value;
@@ -14,7 +16,7 @@ export default function HowWeWork({ aboutData, locale }) {
 
                 return(
                     <div key={aboutItem._id}>
-                        <Container className="flex flex-col md:flex-row gap-5  justify-around items-center ">
+                        <Container className="flex flex-col md:flex-row gap-5  justify-around items-center py-10">
                             <div className='flex flex-col gap-5 md:w-1/3 '>
                             <h2 className="uppercase text-center text-4xl font-h1  font-black  text-gray/70">{localizedTitle}</h2>
                                 <p className='font-light text-base text-center' > {localizedDescription} </p>

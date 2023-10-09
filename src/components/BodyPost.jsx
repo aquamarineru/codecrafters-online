@@ -76,8 +76,8 @@ export default function BodyPost({ post, locale, contactData }){
                     ))} 
                     </div>
                 </div>
-                <div className="flex flex-col grid-row-2 grid-col-2 gap-2">
-                    <p className="mb-2 font-bold text-gray text-base md:text-lg text-opacity-50">Author: </p>
+                <div className="flex flex-col grid-row-2 grid-col-2">
+                    <p className="font-bold text-gray text-base md:text-lg text-opacity-50">Author: </p>
                         {post.author && post.author.length > 0 && (
                             <div className='flex gap-4 items-center'>
                                 <Image 
@@ -87,7 +87,13 @@ export default function BodyPost({ post, locale, contactData }){
                                     height={60}
                                     className='rounded-full'
                                 />
-                                <span className='ml-2 font-tag text-sm md:text-base'>{post.author[0].name}</span>
+                                <div className='flex flex-col'>
+                                <span className='ml-2 font-tag text-sm font-bold md:text-base'>{post.author[0].name}</span>
+                                <span className='ml-2 font-tag text-sm md:text-base'>
+                                {post.author[0].bio}
+                                </span>
+                                </div>
+                                
                             </div>
                         )}
                 </div>

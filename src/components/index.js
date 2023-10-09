@@ -23,3 +23,4 @@ export { default as Post } from './Post';
 export { default as Article } from './Article';
 export { default as BodyPost } from './BodyPost';
 export { default as Breadcrumb } from './Breadcrumb';
+export { default as ServicesPageItems } from './ServicesPageItems';
