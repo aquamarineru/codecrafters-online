@@ -2,22 +2,23 @@ import React from "react"
 import Link from "next/link";
 import Image from "next/image";
 import { PiArrowLeftLight } from 'react-icons/pi';
-import { Container, Breadcrumb, ServicesPageItems } from "@/components";
+import { Container, Breadcrumb,  } from "@/components";
 import { client, urlFor } from "../../lib/client";
 
-export default function ServicesPage ({locale, servicesPageData}) {
+export default function ProjectPage ({locale, projectPageData}) {
+    console.log(projectPageData)
     return (
         <div className="bg-dark bg-hero h-full w-full text-light"
         >
             {
-                Array.isArray(servicesPageData) && servicesPageData.map((servicesItem) => {
-                    const localizedBtn = servicesItem.button.find(item => item._key === locale)?.value;
-                    const localizedTitle = servicesItem.title.find(item => item._key === locale)?.value;
-                    const localizedDescription = servicesItem.description.find(item => item._key === locale)?.value;
-                    const paths = [ localizedTitle]
-                    console.log(servicesItem)
+                Array.isArray(projectPageData) && projectPageData.map((projectItem) => {
+                    const localizedBtn = projectItem.button.find(item => item._key === locale)?.value;
+                    const localizedTitle = projectItem.title.find(item => item._key === locale)?.value;
+                    const localizedDescription = projectItem.description.find(item => item._key === locale)?.value;
+                    const paths = [ localizedTitle] 
+                    console.log(projectItem)
                     return(
-                        <div key={servicesItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
+                        <div key={projectItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
                             <Breadcrumb paths={paths} />
                             <Container className='pt-32 h-screen' >
                             <Link href='/' >
@@ -33,8 +34,8 @@ export default function ServicesPage ({locale, servicesPageData}) {
                             </div>
                             <div className="hidden md:block">
                                 <Image
-                                key={servicesItem._id}
-                                src={urlFor(servicesItem.image).url()}
+                                key={projectItem._id}
+                                src={urlFor(projectItem.image).url()}
                                 width={700}
                                 height={600}
                                 className='md:absolute md:top-0 md:right-0 md:w-[500px] xl:left-1/2 rounded opacity-40 object-cover  shadow-custom'
@@ -44,8 +45,8 @@ export default function ServicesPage ({locale, servicesPageData}) {
                             
 
                         </div>
-                            <ServicesPageItems servicesPageData={servicesPageData} locale={locale}  />
-                            </Container>
+                            
+                            </Container> 
 
                         </div>
                     )
@@ -57,17 +58,17 @@ export default function ServicesPage ({locale, servicesPageData}) {
 
 export async function getStaticProps({ locale }) {
     try {
-        const servicesPageQuery = `*[_type == "servicesPage"]{
+        const projectPageQuery = `*[_type == "projectPage"]{
             _id,
             title,
             description,
             button,
             image,
         }`
-        const servicesPageData = await client.fetch(servicesPageQuery);
+        const projectPageData = await client.fetch(projectPageQuery);
         return {
             props: {
-                servicesPageData,
+                projectPageData,
                 locale,
             },
         }
@@ -75,7 +76,7 @@ export async function getStaticProps({ locale }) {
         console.error("Error fetching data:", error);
         return {
             props: {
-                servicesPageData: [],
+                projectPageData: [],
                 locale,
             },
         }
