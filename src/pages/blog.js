@@ -7,8 +7,6 @@ import { loadPosts } from './api/posts';
 const LOAD_MORE = 4;
 
 export default function Blog({ initialPosts, total, locale }) {
-    const paths = ['Blog']
-
     const [posts, setPosts] = useState(initialPosts);
     const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE);
     const [loading, setLoading] = useState(false);
@@ -30,13 +28,14 @@ export default function Blog({ initialPosts, total, locale }) {
 
     return (
         <div className="bg-dark bg-hero h-full w-full text-light">
-            <Breadcrumb paths={paths} />
             {Array.isArray(posts) && posts.map(post => {
                 const localizedTitle = post.title.find(item => item._key === locale)?.value;
                 const localizedDescription = post.description.find(item => item._key === locale)?.value;
                 const localizedBtn = post.button.find(item => item._key === locale)?.value;
+                const paths = [localizedTitle]
                 return (
                     <div key={post._id} className="px-6">
+                        <Breadcrumb paths={paths} />
                         <Container className='pt-24'>
                         <Link href='/' >
                             <button className="flex items-center font-tag gap-3 before-element pt-10">

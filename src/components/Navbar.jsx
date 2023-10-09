@@ -9,7 +9,7 @@ import { TfiClose } from 'react-icons/tfi';
 const links = [
     { href: '/', label: 'home' },
     { href: '/about', label: 'why us?' },
-    { href: '/#services', label: 'our services' },
+    { href: '/services', label: 'our services' },
     { href: '/projects', label: 'projects' },
     { href: '/#fqa', label: 'fqa' },
     { href: '/blog', label: 'blog' },

@@ -16,7 +16,7 @@ export default function Services({ servicesData, locale, serviceTabsData }) {
                 return (
                   <div className='z-0 py-24 bg-gradient-to-t from-dark via-dark to-basic' key={servicesData._id}>
                     <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-0' />
-                  <Container className='z-20 flex flex-col items-center justify-center'>
+                    <Container className='z-20 flex flex-col items-center justify-center'>
                     <h2 className='uppercase font-h1 text-4xl text-center font-black md:text-6xl text-gray/60'>{localizedTitle} </h2>
                       <ServiceTabs serviceTabsData={serviceTabsData} locale={locale} />
                       <Link href='/services' className='z-10'>

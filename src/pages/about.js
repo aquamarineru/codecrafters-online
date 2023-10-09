@@ -7,17 +7,17 @@ import { PiArrowLeftLight } from "react-icons/pi";
 
 
 function AboutPage({ aboutPageData, locale }) {
-    const paths = ['about']
     return (
     <div className="w-full h-full bg-dark/95 bg-hero text-light">
-        <Breadcrumb paths={paths} />
         {Array.isArray(aboutPageData) && aboutPageData.map((aboutPageItem) => {
             const localizedBtn = aboutPageItem.btn.find(item => item._key === locale)?.value;
             const localizedTitle = aboutPageItem.title.find(item => item._key === locale)?.value;
             const localizedDescription = aboutPageItem.description.find(item => item._key === locale)?.value;
+            const paths = [ localizedTitle]
 
             return(
                 <div key={aboutPageItem._id}>
+                    <Breadcrumb paths={paths} />
                     <Container className='pt-24'>
                         <Link href='/' >
                             <button className="flex items-center font-tag gap-3 before-element pt-10">
@@ -32,10 +32,10 @@ function AboutPage({ aboutPageData, locale }) {
                             </div>
                             <Image
                             key={aboutPageItem._id}
-                            src={urlFor(aboutPageItem.image).url()}
-                            width={500}
-                            height={500}
-                            className="hidden md:block rounded shadow-md md:w-[50%]"
+                            src={urlFor(aboutPageItem.image).crop('center').fit('crop').width(900).height(900).url()}
+                            width={900}
+                            height={900}
+                            className='hidden md:block rounded shadow-md md:w-1/2 object-cover h-full z-10 shadow-custom'
                             alt="about image"
                             />
 

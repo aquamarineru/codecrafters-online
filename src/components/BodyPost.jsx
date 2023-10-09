@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Article, Content, Breadcrumb } from "."
+import { Container, Article, ContactForm, Breadcrumb } from "."
 import { format } from 'date-fns'
 import Image from "next/image"
 import { urlFor } from "../../lib/client" 
@@ -39,9 +39,10 @@ const serializers = {
 };
 
 
-export default function BodyPost({ post, locale }){
+export default function BodyPost({ post, locale, contactData }){
     const date = format(new Date(post.publishedAt), 'dd MMM yyyy');
     const localizedTitle = post.title?.find(entry => entry._key === locale)?.value;
+    const localizedReadingTime = post.readTime?.find(entry => entry._key === locale)?.value;
     const paths = [ 'blog', localizedTitle ]
 
     return(
@@ -63,7 +64,7 @@ export default function BodyPost({ post, locale }){
                     <p className="mb-2 font-bold text-gray text-base md:text-lg text-opacity-50">
                         Reading Time:
                     </p>
-                    {post.readTime[0]?.value}
+                    {localizedReadingTime}
                 </div>
                 <div className="flex flex-col grid-row-2 grid-col-1 gap-2">
                     <p className="mb-2 font-bold text-gray text-base md:text-lg text-opacity-50">Tags: </p>
@@ -82,8 +83,8 @@ export default function BodyPost({ post, locale }){
                                 <Image 
                                     src={urlFor(post.author[0].image).url()}
                                     alt={post.author[0].image.alt}
-                                    width={50}
-                                    height={50}
+                                    width={60}
+                                    height={60}
                                     className='rounded-full'
                                 />
                                 <span className='ml-2 font-tag text-sm md:text-base'>{post.author[0].name}</span>
@@ -92,7 +93,7 @@ export default function BodyPost({ post, locale }){
                 </div>
             </div> 
             <div className="pt-10">
-            <BlockContent 
+                <BlockContent 
                     blocks={post.body[locale]}
                     imageOptions={{ w: 1000, h: 800, fit: 'max',  }}
                     serializers={serializers}
@@ -100,8 +101,7 @@ export default function BodyPost({ post, locale }){
                     dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
                     className='w-full px-2  text-light'
                 />
-                </div>
-                       
+            </div>
         </div>
     )
 }

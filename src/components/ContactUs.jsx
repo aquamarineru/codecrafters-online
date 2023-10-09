@@ -29,7 +29,6 @@ export default function ContactUs({ contactData, locale}) {
         setIsOpen(prevState => !prevState);
     };
 
-    console.log(contactData)
     return (
         <div className='flex items-center bg-dark bg-hero justify-center text-light h-full w-full relative'>
             {
