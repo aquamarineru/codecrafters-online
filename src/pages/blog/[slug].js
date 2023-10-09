@@ -7,7 +7,7 @@ import { PiArrowLeftLight } from 'react-icons/pi';
 export default  function Post ({ post, locale }) {
     console.log(post)
     return (
-        <div className='bg-dark bg-hero h-full py-10 flex items-center'>
+        <div className='bg-dark bg-hero h-full py-10 px-2 flex items-center' >
             <Container className=''>
                 <Link href='/blog' >
                     <button className="flex items-center font-tag gap-3 before-element pt-24 text-light">

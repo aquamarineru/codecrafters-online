@@ -34,9 +34,9 @@ export default function Blog({ initialPosts, total, locale }) {
                 const localizedBtn = post.button.find(item => item._key === locale)?.value;
                 const paths = [localizedTitle]
                 return (
-                    <div key={post._id} className="px-6">
+                    <div key={post._id} className="px-6" style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
                         <Breadcrumb paths={paths} />
-                        <Container className='pt-24'>
+                        <Container className='pt-24 h-full'>
                         <Link href='/' >
                             <button className="flex items-center font-tag gap-3 before-element pt-10">
                                 <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />

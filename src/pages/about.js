@@ -8,7 +8,7 @@ import { PiArrowLeftLight } from "react-icons/pi";
 
 function AboutPage({ aboutPageData, locale }) {
     return (
-    <div className="w-full h-full bg-dark/95 bg-hero text-light">
+    <div className="w-full h-full bg-dark/95 bg-hero text-light" >
         {Array.isArray(aboutPageData) && aboutPageData.map((aboutPageItem) => {
             const localizedBtn = aboutPageItem.btn.find(item => item._key === locale)?.value;
             const localizedTitle = aboutPageItem.title.find(item => item._key === locale)?.value;
@@ -18,7 +18,7 @@ function AboutPage({ aboutPageData, locale }) {
             return(
                 <div key={aboutPageItem._id}>
                     <Breadcrumb paths={paths} />
-                    <Container className='pt-24'>
+                    <Container className='pt-24 h-full'>
                         <Link href='/' >
                             <button className="flex items-center font-tag gap-3 before-element pt-10">
                                 <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
@@ -32,10 +32,10 @@ function AboutPage({ aboutPageData, locale }) {
                             </div>
                             <Image
                             key={aboutPageItem._id}
-                            src={urlFor(aboutPageItem.image).crop('center').fit('crop').width(900).height(900).url()}
+                            src={urlFor(aboutPageItem.image).crop('center').fit('crop').width(900).height(600).url()}
                             width={900}
                             height={900}
-                            className='hidden md:block rounded shadow-md md:w-1/2 object-cover h-full z-10 shadow-custom'
+                            className='hidden md:block rounded opacity-60 md:w-1/2 object-cover h-full z-10 shadow-custom'
                             alt="about image"
                             />
 
