@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Button, PostGrid, Post } from "@/components";
+import { Container, Button, PostGrid, Post, Breadcrumb } from "@/components";
 import Link from "next/link";
 import { PiArrowLeftLight } from 'react-icons/pi';
 import { loadPosts } from './api/posts';
@@ -7,7 +7,8 @@ import { loadPosts } from './api/posts';
 const LOAD_MORE = 4;
 
 export default function Blog({ initialPosts, total, locale }) {
-    console.log(initialPosts)
+    const paths = ['Blog']
+
     const [posts, setPosts] = useState(initialPosts);
     const [loadedAmount, setLoadedAmount] = useState(LOAD_MORE);
     const [loading, setLoading] = useState(false);
@@ -29,6 +30,7 @@ export default function Blog({ initialPosts, total, locale }) {
 
     return (
         <div className="bg-dark bg-hero h-full w-full text-light">
+            <Breadcrumb paths={paths} />
             {Array.isArray(posts) && posts.map(post => {
                 const localizedTitle = post.title.find(item => item._key === locale)?.value;
                 const localizedDescription = post.description.find(item => item._key === locale)?.value;

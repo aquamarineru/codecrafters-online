@@ -1,13 +1,21 @@
 import React from 'react'
 import { client } from '../../../lib/client'
-import { BodyPost, Container, } from "@/components";
+import { BodyPost, Container, Breadcrumb } from "@/components";
+import Link from "next/link";
+import { PiArrowLeftLight } from 'react-icons/pi';
 
 export default  function Post ({ post, locale }) {
+    console.log(post)
     return (
-        <div className='bg-dark bg-hero h-full py-10'>
+        <div className='bg-dark bg-hero h-full py-10 flex items-center'>
             <Container className=''>
+                <Link href='/blog' >
+                    <button className="flex items-center font-tag gap-3 before-element pt-24 text-light">
+                        <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
+                                    Back
+                    </button>
+                </Link>
                 <BodyPost post={post} locale={locale} />
-
             </Container>
             
         </div>

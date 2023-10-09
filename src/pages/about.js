@@ -1,14 +1,16 @@
 import React from "react";
 import { client, urlFor } from "../../lib/client";
-import { Container } from "@/components";
+import { Container, Breadcrumb } from "@/components";
 import Link from "next/link";
 import Image from "next/image";
 import { PiArrowLeftLight } from "react-icons/pi";
 
 
 function AboutPage({ aboutPageData, locale }) {
+    const paths = ['about']
     return (
     <div className="w-full h-full bg-dark/95 bg-hero text-light">
+        <Breadcrumb paths={paths} />
         {Array.isArray(aboutPageData) && aboutPageData.map((aboutPageItem) => {
             const localizedBtn = aboutPageItem.btn.find(item => item._key === locale)?.value;
             const localizedTitle = aboutPageItem.title.find(item => item._key === locale)?.value;
@@ -16,7 +18,7 @@ function AboutPage({ aboutPageData, locale }) {
 
             return(
                 <div key={aboutPageItem._id}>
-                    <Container className='pt-10'>
+                    <Container className='pt-24'>
                         <Link href='/' >
                             <button className="flex items-center font-tag gap-3 before-element pt-10">
                                 <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
