@@ -46,7 +46,7 @@ export default function Blog({ initialPosts, total, locale }) {
                         <div className="flex flex-col pt-5 gap-10 md:w-[50%] ">
                                 <h1 className="uppercase font-h1 text-3xl md:text-5xl  font-black  text-gray/70" >{localizedTitle} </h1>
                                 <p className="text-sm md:text-base font-light" > {localizedDescription} </p>
-                            </div>
+                        </div>
                      
                             <PostGrid className=''>
                             {post.postMains.map(postMain => {

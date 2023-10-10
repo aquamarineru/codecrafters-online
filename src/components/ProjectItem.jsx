@@ -32,7 +32,7 @@ export default function ProjectItem({slug, title, image, locale, bg, tags, descr
                     alt={title && title[0]?.value || "Post Image"}
                     width={420}
                     height={420}
-                    className='relative block  md:w-[400px] md:h-[300px] lg:w-[500px] lg:h-[350px] object-cover transition-all duration-800 transform group-hover:scale-110 z-0'
+                    className='relative block w-[300px] h-full  md:w-[400px] md:h-[300px] lg:w-[500px] lg:h-[350px] object-cover transition-all duration-800 transform group-hover:scale-110 z-0'
                      />
                 </div>
             </div>

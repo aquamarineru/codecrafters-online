@@ -26,3 +26,4 @@ export { default as Breadcrumb } from './Breadcrumb';
 export { default as ServicesPageItems } from './ServicesPageItems';
 export { default as ProjectsGrid } from './ProjectsGrid';
 export { default as ProjectItem } from './ProjectItem';
+export { default as ProjectBody } from './ProjectBody';
