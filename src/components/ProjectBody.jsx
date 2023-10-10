@@ -39,7 +39,7 @@ const serializers = {
 export default function ProjectBody({item, locale}) {
     console.log(item)
     return(
-        <div className='pt-10'>
+        <div className='pt-16'>
             <BlockContent
             blocks={item.body[locale] }
             serializers={serializers}
