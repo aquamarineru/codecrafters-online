@@ -60,11 +60,10 @@ export default function Hero({ homeData, locale }) {
             return(
                 <div
                 key={homeItem._id}
-                className='absolute  top-0 left-0 right-0 bottom-0 bg-hero flex items-center justify-between z-0'
+                className='absolute  top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-dark via-dark to-hover flex items-center justify-between z-0'
                 >
-                <div className='absolute top-0 left-0 right-0 bottom-0  -z-10' />
                     <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >
-                        <div className='flex flex-row items-start gap-3 order-2 md:order-1 z-20' >
+                        <div className='flex flex-row items-start gap-3 order-2 md:order-1 z-20 ' >
                             <motion.div 
                             variants={slideDown}
                             initial="initial"
@@ -73,26 +72,26 @@ export default function Hero({ homeData, locale }) {
                                 <div className='w-4 h-4 md:w-5 md:h-5 rounded-full bg-hover' />
                                 <div className='w-1 sm:h-80 h-40 gradient' />
                             </motion.div>
-                            <div className='flex flex-col gap-5'>
+                            <div className='flex flex-col gap-5 '>
                                 <motion.h1
                                 variants={fadeInUp}
                                 initial="initial"
                                 animate="animate" 
-                                className=" font-black font-h1 text-2xl md:text-4xl md:w-[350px] xl:w-[450px] xl:text-5xl text-light/80 tracking-wid ">
+                                className=" font-black font-h1 text-2xl md:text-4xl md:w-[350px] xl:w-[450px] xl:text-5xl text-gray  tracking-wid ">
                                 {localizedTitle}
                                 </motion.h1>
                                 <motion.h2 
                                 variants={fadeInUpDelayed}
                                 initial="initial"
                                 animate="animate"
-                                className=' text-light/80 z-20 text-base md:text-xl xl:text-2xl font-tag md:w-[350px] xl:w-[450px]'>
+                                className=' text-light z-20 text-base md:text-xl xl:text-2xl font-text md:w-[350px] xl:w-[450px]'>
                                 {localizedSubtitle}
                                 </motion.h2>  
                                 <div className='py-10 z-50 cursor-pointer flex flex-col lg:flex-row items-start  lg:items-center gap-5'>
                                     <Link 
                                     href="/#contact" >
                                         <Button 
-                                        className='hover:bg-dark/60 text-sm z-50  cursor-pointer hover:text-light'>
+                                        className='hover:bg-dark/60 text-sm  md:py-6 md:px-4 md:text-base z-50  cursor-pointer hover:text-light'>
                                         {localizedButton}
                                         </Button>
                                     </Link>
@@ -100,7 +99,7 @@ export default function Hero({ homeData, locale }) {
                                     href='https://calendly.com/'
                                     target='_blank'>
                                         <button 
-                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-sm w-full gap-2 px-6">
+                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-base w-full gap-2 px-6">
                                         <PiCalendarBlankThin  /> 
                                         {localizedBtn}
                                         </button>
@@ -122,7 +121,7 @@ export default function Hero({ homeData, locale }) {
                             width={1400}
                             height={800}
                             property={homeItem.image.asset._ref}
-                            className=' w-full h-full  '
+                            className=' w-full h-full object-cover z-10 opacity-70'
                             /> 
                             
                         </div>

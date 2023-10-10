@@ -24,3 +24,5 @@ export { default as Article } from './Article';
 export { default as BodyPost } from './BodyPost';
 export { default as Breadcrumb } from './Breadcrumb';
 export { default as ServicesPageItems } from './ServicesPageItems';
+export { default as ProjectsGrid } from './ProjectsGrid';
+export { default as ProjectItem } from './ProjectItem';
