@@ -37,7 +37,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
     }, []);
 
     useEffect(() => {
-        const maxTranslation = 100;
+        const maxTranslation = 50;
         const isMdBreakpoint = window.innerWidth >= 768 && window.innerWidth < 1024;
         const isLgBreakpoint = window.innerWidth >= 1024 && window.innerWidth < 1280; // Assuming lg breakpoint is between 1024px and 1280px
 
@@ -57,7 +57,7 @@ export default function ServiceTabs({ serviceTabsData, locale }) {
     }, [scrollY, webControls, otherTabsControls]);
 
     return (
-        <div className="flex flex-wrap gap-3 pt-10 mx-auto text-light">
+        <div className="flex flex-wrap gap-3 pt-10 mx-auto overflow-x-hidden text-light">
 
             {Array.isArray(sortedServiceTabsData) &&
                 sortedServiceTabsData.map((serviceTabItem) => {

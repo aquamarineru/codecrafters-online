@@ -121,7 +121,7 @@ export default function Hero({ homeData, locale }) {
                             width={1400}
                             height={800}
                             property={homeItem.image.asset._ref}
-                            className=' w-full h-full object-cover z-10 opacity-70'
+                            className=' w-full h-full object-cover z-10 opacity-70 lozad'
                             /> 
                             
                         </div>
