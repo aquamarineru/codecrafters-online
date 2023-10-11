@@ -22,6 +22,7 @@ export default function Navbar() {
     const router = useRouter();
     const { locale: activeLocal, locales } = router;
     const otherLocales = locales.filter((locale) => locale !== activeLocal);
+
     const changeLocale = (locale) => {
         document.cookie = `NEXT_LOCALE=${locale}`;
     };
@@ -77,8 +78,11 @@ export default function Navbar() {
                         <div className=" flex flex-col items-center justify-center gap-10">
                             <div className='flex flex-col items-center justify-center gap-6 pt-32'>
                                 {links.map(({ href, label }, index) => (
-                                    <Link href={href} key={index}
-                                        className='text-light md:text-lg xl:text-xl before-element font-tag  cursor-pointer transition-colors tracking-wider hover:text-hover'>
+                                    <Link 
+                                    href={href} 
+                                    key={index}
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className='text-light md:text-lg xl:text-xl before-element font-tag  cursor-pointer transition-colors tracking-wider hover:text-hover'>
                                             {label}
                                     
                                     </Link>

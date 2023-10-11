@@ -39,12 +39,13 @@ const serializers = {
 export default function ProjectBody({item, locale}) {
     console.log(item)
     return(
-        <div className='pt-16'>
+        <div className='pt-16 flex flex-col items-center'>
             <BlockContent
             blocks={item.body[locale] }
             serializers={serializers}
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+            className='xl:w-[800px]'
             />
         </div>
     )

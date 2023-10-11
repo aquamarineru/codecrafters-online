@@ -1,6 +1,6 @@
 import React from 'react'
 import { client } from '../../../lib/client'
-import { BodyPost, Container, Breadcrumb } from "@/components";
+import { BodyPost, Container, ContactUs } from "@/components";
 import Link from "next/link";
 import { PiArrowLeftLight } from 'react-icons/pi';
 

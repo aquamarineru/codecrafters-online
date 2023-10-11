@@ -2,13 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "../../lib/client";
-import { PiArrowRight } from "react-icons/pi";
 import { format } from "date-fns";
 
 export default function Post({ title, image, slug, publishedAt, button, locale }) {
-    const date = format(new Date(), 'dd MMM yyyy');
+    const date = format(new Date(publishedAt), 'dd MMM yyyy');
     const localizedTitle = title?.find(entry => entry._key === locale)?.value || "";
-    const localizedBtn = button?.find(entry => entry._key === locale)?.value || "";
 
     return (
         <Link className="text-light border border-light/10 bg-glass bg-dark/40 py-4 px-4 rounded-md  " href={`/blog/${encodeURIComponent(slug?.current || "")}`}>
