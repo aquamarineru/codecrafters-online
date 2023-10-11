@@ -109,9 +109,6 @@ export default function Hero({ homeData, locale }) {
                         </div>
                         <div className='w-full order-1 md:order-2 z-10 md:flex md:flex-col md:gap-3'>
                         <div
-                        variants={slideDown}
-                        initial="initial"
-                        animate="animate"
                         className='w-full h-full absolute top-0 left-0 z-10'
                         >
                             <Image
@@ -120,8 +117,8 @@ export default function Hero({ homeData, locale }) {
                             alt={homeItem.title}
                             width={1400}
                             height={800}
-                            property={homeItem.image.asset._ref}
-                            className=' w-full h-full object-cover z-10 opacity-70 lozad'
+                            priority={true}
+                            className='object-cover z-10 opacity-70 w-[500px] md:w-full '
                             /> 
                             
                         </div>

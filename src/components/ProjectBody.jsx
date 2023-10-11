@@ -37,7 +37,6 @@ const serializers = {
 };
 
 export default function ProjectBody({item, locale}) {
-    console.log(item)
     return(
         <div className='pt-16 flex flex-col items-center'>
             <BlockContent

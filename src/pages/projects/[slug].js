@@ -16,7 +16,10 @@ export default function ProjectPage({ item, locale}) {
             <Breadcrumb paths={paths} />
             <Container className=' pt-10 md:pt-24 h-full' style={{background: 'radial-gradient(circle at center, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
                 <Link href='/projects' >
-                    <button className="flex items-center font-tag gap-3 before-element pt-10">
+                    <button 
+                    role='button'
+                    aria-label='back button'
+                    className="flex items-center font-tag gap-3 before-element pt-10">
                     <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
                     {localizedBtn}
                     </button>
