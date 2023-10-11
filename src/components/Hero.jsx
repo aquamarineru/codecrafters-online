@@ -118,7 +118,7 @@ export default function Hero({ homeData, locale }) {
                             width={1400}
                             height={800}
                             priority={true}
-                            className='object-cover z-10 opacity-70 w-[500px] md:w-full '
+                            className='object-cover z-10 opacity-70 w-full h-full'
                             /> 
                             
                         </div>
