@@ -3,9 +3,8 @@ import { PiCalendarBlankThin } from 'react-icons/pi'
 import Link from 'next/link';
 import Image from 'next/image';
 import { urlFor } from '../../lib/client';
-import { Container, Button, Social } from '.';
+import { Container, Button } from '.';
 import { motion } from 'framer-motion';
-import Circle from './Circle';
 
 
 export default function Hero({ homeData, locale }) {
@@ -60,8 +59,9 @@ export default function Hero({ homeData, locale }) {
             return(
                 <div
                 key={homeItem._id}
-                className='absolute  top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-dark via-dark to-hover flex items-center justify-between z-0'
+                className='absolute  top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-dark via-dark to-basic flex items-center justify-between z-0'
                 >
+                    <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero z-0' />
                     <Container className='mx-auto grid max-w-7xl grid-cols-1  items-center gap-8 md:grid-cols-2' >
                         <div className='flex flex-row items-start gap-3 order-2 md:order-1 z-20 ' >
                             <motion.div 
@@ -84,23 +84,23 @@ export default function Hero({ homeData, locale }) {
                                 variants={fadeInUpDelayed}
                                 initial="initial"
                                 animate="animate"
-                                className=' text-light z-20 text-base md:text-xl xl:text-2xl font-text md:w-[350px] xl:w-[450px]'>
+                                className=' text-light z-20 text-base md:text-xl xl:text-2xl font-text md:w-[350px] lg:w-[600px]'>
                                 {localizedSubtitle}
                                 </motion.h2>  
                                 <div className='py-10 z-50 cursor-pointer flex flex-col lg:flex-row items-start  lg:items-center gap-5'>
                                     <Link 
                                     href="/#contact" >
                                         <Button 
-                                        className='hover:bg-dark/60 text-sm  md:py-6 md:px-4 md:text-base z-50  cursor-pointer hover:text-light'>
+                                        className='hover:bg-basic/50 text-sm text-gray md:py-8 md:px-10 md:font-bold md:text-base z-50  cursor-pointer uppercase hover:text-light'>
                                         {localizedButton}
                                         </Button>
                                     </Link>
                                     <Link 
-                                    href='https://calendly.com/'
+                                    href='https://cal.com/codecrafters/30min'
                                     target='_blank'>
                                         <button 
-                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-base w-full gap-2 px-6">
-                                        <PiCalendarBlankThin  /> 
+                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  h-10 py-4 md:py-8 md:px-10 md:text-base md:font-bold w-full gap-2 px-6">
+                                        <PiCalendarBlankThin className='font-bold text-xl'  /> 
                                         {localizedBtn}
                                         </button>
                                     </Link>

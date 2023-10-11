@@ -30,7 +30,7 @@ export default function ContactUs({ contactData, locale}) {
     };
 
     return (
-        <div className='flex items-center bg-dark bg-hero justify-center text-light h-full w-full relative'>
+        <div id='contact' className='flex items-center bg-dark bg-hero justify-center text-light h-full w-full relative'>
             {
                 Array.isArray(contactData) && contactData.length > 0 && contactData.map((item, index) => {
                     const localizedBtn = item.btn?.find(entry => entry._key === locale)?.value;
@@ -44,7 +44,7 @@ export default function ContactUs({ contactData, locale}) {
                                 alt={item.image.alt}
                                 width={1000}
                                 height={800}
-                                className='object-cover w-full h-screen -z-10 opacity-60'
+                                className='object-cover w-full h-full -z-10 opacity-60'
                             />
                             <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
                             <Container className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark rounded w-[300px] p-4 md:w-[400px] md:px-10 md:py-16 flex justify-center items-center bg-hero'>
@@ -57,14 +57,14 @@ export default function ContactUs({ contactData, locale}) {
                                     </p>
                                     <Button
                                         onClick={toggleModal}
-                                        className='hover:bg-dark/60 text-sm z-20 cursor-pointer hover:text-light'>
+                                        className='hover:bg-dark/60 text-sm z-20 cursor-pointer md:py-8 md:px-10 md:font-bold uppercase hover:text-light md:text-base'>
                                         {localizedModalBtn}
                                     </Button>
                                     <Link 
                                     className='w-full'
                                     href='https://calendly.com/'
                                     target='_blank'>
-                                        <button className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-100 text-slate-900 hover:bg-slate-100/80 h-10 py-4 md:py-6 md:px-4 md:text-sm w-full gap-2 px-6">
+                                        <button className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-100 md:text-base text-basic hover:bg-slate-100/80 h-10 py-4 md:py-8 md:px-10 md:font-bold w-full gap-2 px-6 uppercase">
                                             <PiCalendarBlankThin />
                                             {localizedBtn}
                                         </button>
@@ -87,58 +87,6 @@ export default function ContactUs({ contactData, locale}) {
         </div>
     );
         
-/*         <div className='flex items-center bg-dark bg-hero justify-center text-light h-full w-full relative'>
-        {
-            Array.isArray(contactData) && contactData.length > 0 && contactData.map((item, index) => {
-                const localizedBtn= item.btn?.find(entry => entry._key === locale)?.value;
-                const localizedModalBtn= item.modalBtn?.find(entry => entry._key === locale)?.value;
-                const localizedMainTitle= item.mainTitle?.find(entry => entry._key === locale)?.value;
-                const localizedDescription= item.description?.find(entry => entry._key === locale)?.value;
-                return (
-                    <div className='flex flex-col justify-center items-center w-full h-screen md:h-full z-0' key={item._id}>
-                        <Image
-                            src={urlFor(item.image).url()}
-                            alt={item.image.alt}
-                            width={1000}
-                            height={800}
-                            className='object-cover w-full h-screen -z-10 opacity-60'
-                        />
-                        <div className='absolute top-0 left-0 right-0 bottom-0 bg-hero -z-10' />
-                        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 bg-dark rounded w-[300px] p-4 md:w-[400px] md:px-10 md:py-16 flex justify-center items-center'>
-                            <div className='flex flex-col justify-between items-start gap-10'> 
-                                <h2 className='font-black font-h1 text-xl md:text-2xl text-gray '> 
-                                {localizedMainTitle}
-                                </h2>
-                                <p className='text-light font-light'>
-                                {localizedDescription}
-                                </p>
-                                <Button 
-                                onClick={() => handleModal()}
-                                className='hover:bg-dark/60 text-sm z-20  cursor-pointer hover:text-light'>
-                                {localizedModalBtn}
-                                </Button>
-                                <Link 
-                                    href='https://calendly.com/'>
-                                        <button 
-                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-sm w-full gap-2 px-6">
-                                        <PiCalendarBlankThin  /> 
-                                        {localizedBtn}
-                                        </button>
-                                </Link>
-                            </div>
-                            <div className='bg-dark p-4'>
-                                <button 
-                                onClick={() => handleModal(index)}
-                                className='absolute top-0 right-0 p-2 text-light z-20'>
-                                    <MdOutlineClose className='text-2xl' />
-                                </button>
-                                <ContactForm item={item} locale={locale} />
-                            </div>
-                        </div>
-                    </div>
-                );
-            })
-        }
-    </div> */
+
 }
 

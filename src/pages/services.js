@@ -19,7 +19,7 @@ export default function ServicesPage ({locale, servicesPageData}) {
                     return(
                         <div key={servicesItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
                             <Breadcrumb paths={paths} />
-                            <Container className='pt-32 h-screen' >
+                            <Container className='pt-32' >
                             <Link href='/' >
                                 <button className="flex items-center font-tag gap-3 before-element pt-10">
                                     <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
@@ -44,7 +44,21 @@ export default function ServicesPage ({locale, servicesPageData}) {
                             
 
                         </div>
-                            <ServicesPageItems servicesPageData={servicesPageData} locale={locale}  />
+                            <div className="py-16 mx-auto grid max-w-7xl grid-cols-1 flex-col gap-8  md:grid-cols-2 lg:grid-cols-3">
+                                {
+                                    servicesItem.ourServiceItems.map(item => {
+                                        return (
+                                            <ServicesPageItems
+                                            key={item._id}
+                                            title={item.title}
+                                            image={item.image}
+                                            body={item.body}
+                                            locale={locale}
+                                            />
+                                        )
+                                    })
+                                }
+                            </div>
                             </Container>
 
                         </div>
@@ -63,6 +77,13 @@ export async function getStaticProps({ locale }) {
             description,
             button,
             image,
+            ourServiceItems[]->{
+                _id,
+                title,
+                image,
+                body,
+                language,
+            },
         }`
         const servicesPageData = await client.fetch(servicesPageQuery);
         return {

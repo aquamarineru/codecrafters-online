@@ -65,7 +65,7 @@ export default function ProjectDemo({ projectData, locale}) {
                                 dataset={clientConfig.dataset}
                                 />
                                 <Link href='/projects' className='z-20 text-dark'>
-                                    <button className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-sm w-full gap-2 px-6">
+                                    <button className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  h-10 py-4 md:py-8 md:px-10 md:text-base md:font-bold w-full gap-2 px-6">
                                     {localizedButton}
                                     <PiArrowRight 
                                     className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 

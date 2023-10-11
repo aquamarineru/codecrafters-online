@@ -108,9 +108,9 @@ function AboutPage({ aboutPageData, locale }) {
                                                 key={benefit.title} className="flex flex-col items-center m-4 from-white-5 to-white-10 rounded border-[1px] border-light border-opacity-20 px-4 py-8 bg-opacity-40 bg-glass relative w-full ">
                                                      {benefit.image && <Image
                                                         src={urlFor(benefit.image).url()}
-                                                        width={150}
+                                                        width={250}
                                                         height={150}
-                                                        className="absolute -top-[50px]"
+                                                        className="absolute -top-[100px]"
                                                         alt={localizedBenefitTitle}
                                                     />}
                                                     <h3 className=" pt-16 font-text text-center text-lg">{localizedBenefitTitle}</h3>
