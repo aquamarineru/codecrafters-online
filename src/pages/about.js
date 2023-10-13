@@ -3,12 +3,13 @@ import { client, urlFor } from "../../lib/client";
 import { Container, Breadcrumb } from "@/components";
 import Link from "next/link";
 import Image from "next/image";
+
 import { PiArrowLeftLight } from "react-icons/pi";
 
 
 function AboutPage({ aboutPageData, locale }) {
     return (
-    <div className="w-full h-full bg-dark/95 bg-hero text-light relative" >
+    <div className="w-full h-full bg-dark/95 bg-hero text-light relative">
         {Array.isArray(aboutPageData) && aboutPageData.map((aboutPageItem) => {
             const localizedBtn = aboutPageItem.btn.find(item => item._key === locale)?.value;
             const localizedTitle = aboutPageItem.title.find(item => item._key === locale)?.value;
