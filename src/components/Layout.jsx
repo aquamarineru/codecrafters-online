@@ -1,10 +1,16 @@
 import React from "react";
 import Head from "next/head";
+import Script from "next/script";
 import { Footer, Social } from "./index";
 
 
 export default function Layout({ children  }) {
-
+    const gtagScript = `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-82C4ZZNG70');
+  `
 
     return(
         <div className="flex flex-col min-h-screen">
@@ -25,6 +31,19 @@ export default function Layout({ children  }) {
                 <meta property="og:email" content="codecraftersdev@gmail.com"></meta>
                 <meta property="og:type" content="website" />
                 <link rel="icon" href="/logo.png" />
+                <div>
+                    <Script src="https://www.googletagmanager.com/gtag/js?id=G-82C4ZZNG70" />
+                    <Script id="google-analytics">
+                    {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+            
+                    gtag('config', 'G-82C4ZZNG70');
+                    `}
+                    </Script>
+                </div>
+                
             </Head>
                 <Social />
             <main role="main" className="flex-grow ">
