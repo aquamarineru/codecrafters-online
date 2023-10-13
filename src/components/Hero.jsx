@@ -88,22 +88,21 @@ export default function Hero({ homeData, locale }) {
                                 {localizedSubtitle}
                                 </motion.h2>  
                                 <div className='py-10 z-50 cursor-pointer flex flex-col lg:flex-row items-start  lg:items-center gap-5'>
+                                <Button>
                                     <Link 
-                                    href="/#contact" >
-                                        <Button 
-                                        className='hover:bg-basic/50 text-sm text-gray md:py-8 md:px-10 md:font-bold md:text-base z-50  cursor-pointer uppercase hover:text-light'>
-                                        {localizedButton}
-                                        </Button>
-                                    </Link>
+                                    href="/#contact" > {localizedButton}</Link>
+                                </Button>
+                                <button 
+                                    className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  h-10 py-4 md:py-8 md:px-10 md:text-base md:font-bold  gap-2 px-6">
                                     <Link 
                                     href='https://cal.com/codecrafters/30min'
-                                    target='_blank'>
-                                        <button 
-                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  h-10 py-4 md:py-8 md:px-10 md:text-base md:font-bold w-full gap-2 px-6">
+                                    target='_blank'
+                                    className='flex items-center justify-center gap-1'>
                                         <PiCalendarBlankThin className='font-bold text-xl'  /> 
                                         {localizedBtn}
-                                        </button>
-                                    </Link>
+                                        </Link>
+                                </button>
+                                    
                                 </div>                                      
                             </div>      
                         </div>

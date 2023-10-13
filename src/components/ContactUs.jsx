@@ -57,9 +57,10 @@ export default function ContactUs({ contactData, locale}) {
                                     </p>
                                     <Button
                                         onClick={toggleModal}
-                                        className='hover:bg-dark/60 text-sm z-20 cursor-pointer md:py-8 md:px-10 md:font-bold uppercase hover:text-light md:text-base'>
+                                        className=' w-full text-sm z-20 cursor-pointer md:py-8 md:px-10 md:font-bold uppercase hover:text-light md:text-base'>
                                         {localizedModalBtn}
                                     </Button>
+
                                     <Link 
                                     className='w-full'
                                     href='https://cal.com/codecrafters/30min'

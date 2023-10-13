@@ -53,15 +53,17 @@ function Error404() {
         <h1 className="text-5xl font-h1 font-black leading-[46px] mb-10">404</h1>
         <p className="font-tag text-xl">Page not found</p>
         <div className="mt-10">
-          <div className="flex items-center justify-center  ">
-            <Link href='/'>
-              <button
-              aria-label='Go back'
-              role='button'
-              className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400  disabled:opacity-50 border text-light bg-hero hover:bg-light/80 hover:text-dark  h-10 md:py-6 md:px-8 md:text-lg w-full gap-4 px-6">
+          <div className="">
+            <button
+            aria-label='Go back'
+            role='button'
+            className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400  disabled:opacity-50 border text-light bg-hero hover:bg-light/80 hover:text-dark  h-10 md:py-6 md:px-8 md:text-lg w-full gap-4 px-6">
+              <Link href='/'>
                 Go back
-              </button>
-            </Link>
+              </Link>
+
+            </button>
+            
            
             
           </div>

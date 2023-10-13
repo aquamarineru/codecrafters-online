@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Article, ContactForm, Breadcrumb } from "."
+import { Breadcrumb } from "."
 import { format } from 'date-fns'
 import Image from "next/image"
 import { urlFor } from "../../lib/client" 

@@ -19,14 +19,15 @@ export default function Services({ servicesData, locale, serviceTabsData }) {
                     <Container className='z-20 flex flex-col items-center justify-center'>
                     <h2 className='uppercase font-h1 text-4xl text-center font-black md:text-6xl text-gray/60'>{localizedTitle} </h2>
                       <ServiceTabs serviceTabsData={serviceTabsData} locale={locale} />
-                      <Link href='/services' className='z-10'>
+                      
                         <Button className="flex items-center justify-center gap-2 font-tag mt-10 cursor-pointer font-light hover:bg-basic/50 text-sm text-gray md:py-8 md:px-10 md:font-bold md:text-base z-50   uppercase hover:text-light">
+                        <Link href='/services' className='z-10 flex items-center gap-2'>
                           {localizedButton}
                           <PiArrowRight 
                           className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
-                          />   
+                          /> 
+                          </Link>  
                         </Button>
-                      </Link>
                     </Container>
                   </div>
                 )

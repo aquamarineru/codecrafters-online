@@ -87,7 +87,7 @@ export default function ContactForm({ contactData, locale }) {
                                 aria-label="Submit form"
                                 role='Submit form'
                                 type="submit"
-                                className="mt-24 md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-slate-100 text-slate-900 hover:bg-slate-100/80  h-10 py-4 md:py-6 md:px-4 md:text-sm w-full gap-2 px-6"
+                                className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-100 md:text-base text-basic hover:bg-slate-100/80 h-10 py-4 md:py-8 md:px-10 md:font-bold w-full gap-2 px-6 uppercase mt-24"
                                 >
                                 {localizedButton} 
                                 </button>
