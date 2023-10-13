@@ -2,6 +2,7 @@ import React from "react";
 import { client, urlFor } from "../../lib/client";
 import { Container, Breadcrumb } from "@/components";
 import Link from "next/link";
+import Head from "next/head";
 import Image from "next/image";
 
 import { PiArrowLeftLight } from "react-icons/pi";

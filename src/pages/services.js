@@ -1,6 +1,7 @@
 import React from "react"
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 import { PiArrowLeftLight } from 'react-icons/pi';
 import { Container, Breadcrumb, ServicesPageItems } from "@/components";
 import { client, urlFor } from "../../lib/client";
