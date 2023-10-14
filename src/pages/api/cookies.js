@@ -14,7 +14,7 @@ const handleCookies = async(req, res) => {
     //Set cookie
     cookies.set('lastVisit', new Date().toISOString(), {
         httpOnly: true, // true by default
-        secure: false, // true by default
+        secure: true, // true by default
         sameSite: 'strict', // strict by default
     });
     if (!lastVisit) {
