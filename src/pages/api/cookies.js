@@ -14,7 +14,7 @@ const handleCookies = async(req, res) => {
     //Set cookie
     cookies.set('lastVisit', new Date().toISOString(), {
         httpOnly: true, // true by default
-        secure: true, // true by default
+        secure: false, // true by default
         sameSite: 'strict', // strict by default
     });
     if (!lastVisit) {
@@ -26,31 +26,3 @@ const handleCookies = async(req, res) => {
       }
 }
 export default handleCookies;
-/* export default async(res, req) => {
-    const cookies = new Cookies(req, res, { keys });
-    
-    // Set a cookie
-    cookies.set('name', 'value', {
-        httpOnly: true, // true by default
-        secure: true, // true by default
-        sameSite: 'strict', // strict by default
-    });
-    
-    // Get a cookie
-    cookies.get('name', { signed: true });
-    
-    // Get all cookies
-    cookies.getAll({ signed: true });
-    
-    // Remove a cookie
-    cookies.set('name', null, {
-        httpOnly: true,
-        secure: true,
-    });
-    
-    // Remove all cookies
-    cookies.set('name', null, {
-        httpOnly: true,
-        secure: true,
-    });
-} */

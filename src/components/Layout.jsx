@@ -25,7 +25,7 @@ export default function Layout({ children  }) {
                 <meta property="og:email" content="codecraftersdev@gmail.com"></meta>
                 <meta property="og:type" content="website" />
                 <meta name="google-site-verification" content="AJ8nK6Q4nHJgsQxUBhlsO6ChsTgPAs75k9PIPuXgb_M" />
-                <link rel="icon" href="/logo.png" />
+                <link rel="icon" href="../public/logo.png" />
                 
             </Head>
                 <Social />
