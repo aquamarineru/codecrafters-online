@@ -4,13 +4,13 @@ import { Navbar, Layout } from '@/components/index'
 import { Analytics } from '@vercel/analytics/react';
 
 function App({ Component, pageProps }) {
-  
+  const { footerData, locale } = pageProps;
   return (
     <div >
     <header role="banner">
       <Navbar/>
     </header>
-    <Layout>
+    <Layout footerData={footerData} locale={locale}>
       <Component {...pageProps} />
       <Analytics />
     </Layout>

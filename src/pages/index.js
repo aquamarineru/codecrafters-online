@@ -4,7 +4,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import {  Hero, HowWeWork, Services, Statistic, ProjectHero, FAQ, ContactUs } from "../components"
 
 
-export default function Home({ homeData, aboutData, projectData, servicesData, serviceTabsData, statisticData, faqData, contactData, locale }) {
+export default function Home({ homeData, aboutData, projectData, servicesData, serviceTabsData, statisticData, faqData, contactData, footerData, locale }) {
+  console.log(footerData)
   return (
     <>
       <Hero homeData={homeData} locale={locale} />
@@ -112,6 +113,17 @@ export async function getStaticProps({ locale }) {
       btn,
       modalBtn,
     }`
+
+    const footerQuery = `*[_type == "footer"]{
+      _id,
+      footerItems[]->{
+        _id,
+        title,
+        button,
+        slug,
+      }
+    }`
+
     const homeData = await client.fetch(homeQuery)
     const aboutData = await client.fetch(aboutQuery)
     const projectData = await client.fetch(projectQuery)
@@ -120,6 +132,7 @@ export async function getStaticProps({ locale }) {
     const statisticData = await client.fetch(statisticQuery)
     const faqData = await client.fetch(faqQuery)
     const contactData = await client.fetch(contactQuery)
+    const footerData = await client.fetch(footerQuery)
 
     return {
       props: {
@@ -131,6 +144,7 @@ export async function getStaticProps({ locale }) {
         statisticData,
         faqData,
         contactData,
+        footerData,
         locale: locale,
         ...(await serverSideTranslations(locale, ['common'])),
       },

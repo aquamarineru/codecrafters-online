@@ -4,8 +4,7 @@ import Script from "next/script";
 import { Footer, Social } from "./index";
 
 
-export default function Layout({ children  }) {
-
+export default function Layout({ children, footerData, locale  }) {
     return(
         <div className="flex flex-col min-h-screen">
             <Head>
@@ -33,7 +32,7 @@ export default function Layout({ children  }) {
                 {children}
             </main>
             <footer role="contentinfo">
-                <Footer />
+                <Footer footerData={footerData} locale={locale} />
             </footer>
         </div>      
 

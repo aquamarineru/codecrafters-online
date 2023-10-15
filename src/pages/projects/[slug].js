@@ -8,7 +8,7 @@ import { PiArrowLeftLight } from 'react-icons/pi';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
 export default function ProjectPage({ item, locale}) {
-    console.log(item)
+
     const localizedBtn = item.button.find(item => item._key === locale)?.value;
     const localizedTitle = item.title.find(item => item._key === locale)?.value;
     const paths = ['projects' ,localizedTitle]
