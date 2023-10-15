@@ -5,7 +5,7 @@ import { Container } from '.';
 export default function Footer() {
 
     return (
-        <div className=' sticky bottom-0 shadow-custom bg-dark bg-hero w-full border-t border-light/40 backdrop-blur-[10px]'>
+        <div className='sticky bottom-0 shadow-custom bg-dark bg-hero w-full border-t border-light/40 backdrop-blur-[10px]'>
             <Container>
                 <nav className='text-light mx-auto max-w-7xl px-8 flex items-center justify-between py-5 relative'>
                     <Link 
