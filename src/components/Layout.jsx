@@ -24,7 +24,8 @@ export default function Layout({ children, footerData, locale  }) {
             <meta property="og:email" content="codecraftersdev@gmail.com" />
             <meta property="og:type" content="website" />
             <meta name="google-site-verification" content="AJ8nK6Q4nHJgsQxUBhlsO6ChsTgPAs75k9PIPuXgb_M" />
-            <link rel="icon" href="/logo.png" />
+            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
                 
             </Head>
                 <Social />
