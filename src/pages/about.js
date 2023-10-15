@@ -19,6 +19,9 @@ function AboutPage({ aboutPageData, locale }) {
 
             return(
                 <div key={aboutPageItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 50%)'}}>
+                    <Head> 
+                        <title> {localizedTitle} | CodeCrafters </title>
+                    </Head>
                     <Breadcrumb paths={paths} />
                     <Container className='pt-24 h-full' >
                         <Link href='/' >

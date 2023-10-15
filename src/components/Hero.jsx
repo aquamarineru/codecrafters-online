@@ -114,8 +114,8 @@ export default function Hero({ homeData, locale }) {
                             key={homeItem._id}
                             src={urlFor(homeItem.image).url()}
                             alt={homeItem.title}
-                            sizes="(max-width: 600px) 100vw, 600px"
-                            loading="lazy"
+                            sizes="(max-width: 600px)"
+                            priority={true}
                             width={1400}
                             height={800}
                             className='object-cover z-10 opacity-70 w-full h-full'

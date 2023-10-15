@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button, PostGrid, Post, Breadcrumb } from "@/components";
+import Head from "next/head";
 import Link from "next/link";
 import { PiArrowLeftLight } from 'react-icons/pi';
 import { loadPosts } from './api/posts';
@@ -35,6 +36,9 @@ export default function Blog({ initialPosts, total, locale }) {
                 const paths = [localizedTitle]
                 return (
                     <div key={post._id} className="px-6" style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
+                        <Head> 
+                            <title> {localizedTitle} | CodeCrafters </title>
+                        </Head>
                         <Breadcrumb paths={paths} />
                         <Container className='pt-24 h-full'>
                         <Link href='/' >

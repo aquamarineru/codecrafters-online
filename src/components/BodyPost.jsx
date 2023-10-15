@@ -2,6 +2,7 @@ import React from 'react';
 import { Breadcrumb } from "."
 import { format } from 'date-fns'
 import Image from "next/image"
+import Head from 'next/head';
 import { urlFor } from "../../lib/client" 
 import BlockContent from '@sanity/block-content-to-react';
 
@@ -47,6 +48,9 @@ export default function BodyPost({ post, locale, contactData }){
 
     return(
         <div className="pt-10 w-full px-2 md:w-[500px] md:px-3 lg:w-[700px] ">
+            <Head> 
+                <title> {localizedTitle} | CodeCrafters </title>
+            </Head>
             <Breadcrumb paths={paths} />
             <h2 className='font-h1 text-xl font-black text-gray md:text-3xl'>{localizedTitle} </h2>
             <div className="pt-5 md:pt-10 w-full grid md:grid-cols-2 grid-rows-2 gap-2 md:gap-10 font-tag text-light">

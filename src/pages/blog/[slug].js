@@ -2,10 +2,10 @@ import React from 'react'
 import { client } from '../../../lib/client'
 import { BodyPost, Container, ContactUs } from "@/components";
 import Link from "next/link";
+import Head from 'next/head';
 import { PiArrowLeftLight } from 'react-icons/pi';
 
 export default  function Post ({ post, locale }) {
-    console.log(post)
     return (
         <div className='bg-dark bg-hero h-full py-10 px-2 flex items-center' >
             <Container className=''>

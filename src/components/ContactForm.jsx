@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import emailjs from 'emailjs-com';
 import BlockContent from '@sanity/block-content-to-react';
 const serializers = {
     types: {
@@ -17,7 +18,35 @@ const serializers = {
     },
 };
 export default function ContactForm({ contactData, locale }) {
-    
+    const [popup, setPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
+
+    const form = useRef();
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_USER_ID);
+
+    function hidePopup() {
+        setPopup(false);
+    }
+    function sendEmail(e) {
+        e.preventDefault();
+        const { name, email, message } = e.target.elements;
+        const templateParams = {
+            from_name: name.value,
+            from_email: email.value,
+            message: message.value,
+          };
+
+        emailjs.sendForm(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, e.target, process.env.NEXT_PUBLIC_EMAILJS_USER_ID)
+            .then((result) => {
+                setPopupMessage('Message sent successfully!');
+                setPopup(true);
+                form.current.reset(); 
+            }, (error) => {
+                setPopupMessage('An error occurred. Please try again.');
+                setPopup(true);
+                console.log(error.text);
+            });
+    }
     return(
         <div>
             {
@@ -27,11 +56,14 @@ export default function ContactForm({ contactData, locale }) {
                     const localizedButton = item.button?.find(entry => entry._key === locale)?.value;
                     const localizedTermsText = item.termsText[locale];
                 return(
-                    <>
+                    <div key={item._id}>
                     <h2 className='font-black font-h1 text-xl md:text-2xl text-gray'>{localizedTitle}</h2>
                             <p className='text-light font-light mt-5 text-sm'>{localizedSubtitle}</p>
                             <div className="flex justify-around text-sm items-center pt-5 font-tag">
-                                <form action="#">
+                                <form 
+                                ref={form}
+                                action=""
+                                onSubmit={sendEmail} >
                                 <div className='relative mb-2 h-[4rem]'>
                                 <label
                                 className=' uppercase bg-dark rounded  absolute top-[-.5rem] left-[1.25rem] p-[0.25rem]'>Name</label>
@@ -91,11 +123,24 @@ export default function ContactForm({ contactData, locale }) {
                                 >
                                 {localizedButton} 
                                 </button>
+                                {popup && <div className="absolute top-0 left-0 right-0 bottom-0 bg-dark/80 flex items-center justify-center z-50">
+                                    <div className="bg-light rounded-md p-5 flex flex-col items-center justify-center gap-5">
+                                        <p className="text-dark text-center">{popupMessage}</p>
+                                        <button
+                                        aria-label="Close popup"
+                                        role="Close popup"
+                                        onClick={hidePopup}
+                                        className="bg-dark text-light px-4 py-2 rounded-md"
+                                        >
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>}
 
                                 </form>
                                 
                             </div>
-                    </>
+                    </div>
                 )
                 })
                 

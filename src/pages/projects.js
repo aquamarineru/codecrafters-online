@@ -7,7 +7,6 @@ import { Container, Breadcrumb, ProjectsGrid, ProjectItem } from "@/components";
 import { client, urlFor } from "../../lib/client";
 
 export default function ProjectPage ({locale, projectPageData}) {
-    console.log(projectPageData)
     return (
         <div className="bg-dark bg-hero h-full w-full text-light"
         >
@@ -19,6 +18,9 @@ export default function ProjectPage ({locale, projectPageData}) {
                     const paths = [ localizedTitle] 
                     return(
                         <div key={projectItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
+                            <Head> 
+                                <title> {localizedTitle} | CodeCrafters </title>
+                            </Head>
                             <Breadcrumb paths={paths} />
                             <Container className='pt-32 h-full ' >
                                 <Link href='/' >

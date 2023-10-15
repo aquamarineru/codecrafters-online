@@ -19,6 +19,9 @@ export default function ServicesPage ({locale, servicesPageData}) {
                     console.log(servicesItem)
                     return(
                         <div key={servicesItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
+                            <Head> 
+                                <title> {localizedTitle} | CodeCrafters </title>
+                            </Head>
                             <Breadcrumb paths={paths} />
                             <Container className='pt-32' >
                             <Link href='/' >
