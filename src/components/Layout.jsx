@@ -19,7 +19,7 @@ export default function Layout({ children, footerData, locale  }) {
                 <link rel="canonical" href="https://codecrafters.online/"></link>
                 <meta property="og:title" content="Code Crafters Online | Web Developers" />
                 <meta property="og:description" content="At Code Crafters, we architect web solutions that are not only highly performant and scalable but also tailored to your unique needs. Discover the potential of our tech stack for your project." />
-                <meta property="og:image" content="" />
+                <meta property="og:image" content="/meta.png" />
                 <meta property="og:url" content="https://codecrafters.online/" />
                 <meta property="og:email" content="codecraftersdev@gmail.com"></meta>
                 <meta property="og:type" content="website" />

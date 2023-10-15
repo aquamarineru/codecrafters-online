@@ -29,7 +29,6 @@ const serializers = {
 };
 
 function FooterLinks({ item, locale}) {
-  console.log(item.body)
   const localizedTitle = item.title.find(item => item._key === locale)?.value;
   const localizedBtn = item.button.find(item => item._key === locale)?.value;
   const paths = [ localizedTitle ]
