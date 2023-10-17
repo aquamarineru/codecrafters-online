@@ -1,13 +1,13 @@
 import React from 'react'
 import { client, urlFor } from '../../../lib/client'
-import { Container, Breadcrumb, ProjectBody } from "@/components";
+import { Container, Breadcrumb, ProjectBody, } from "@/components";
 import Link from "next/link";
 import Head from 'next/head';
 import Image from "next/image";
 import { PiArrowLeftLight } from 'react-icons/pi';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
-export default function ProjectPage({ item, locale}) {
+export default function ProjectPage({ item, locale, contactData}) {
 
     const localizedBtn = item.button.find(item => item._key === locale)?.value;
     const localizedTitle = item.title.find(item => item._key === locale)?.value;
@@ -15,18 +15,16 @@ export default function ProjectPage({ item, locale}) {
     return (
         <div  className='bg-dark bg-hero h-full py-10 px-2 text-light'>
             <Head> 
-                <title> {localizedTitle} | CodeCrafters </title>
+                <title> {localizedTitle} | Code Crafters </title>
             </Head>
             <Breadcrumb paths={paths} />
             <Container className=' pt-10 md:pt-24 h-full' style={{background: 'radial-gradient(circle at center, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
-                <Link href='/projects' >
-                    <button 
-                    role='button'
-                    aria-label='back button'
-                    className="flex items-center font-tag gap-3 before-element pt-10">
+                <Link 
+                href='/projects' 
+                className="flex items-center font-tag gap-3 hover:text-hover hover:transform pt-10">
+                    
                     <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
                     {localizedBtn}
-                    </button>
                 </Link>
                 <div className='flex flex-col items-center pt-5'>
                     <Image

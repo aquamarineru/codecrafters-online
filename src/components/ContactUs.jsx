@@ -62,15 +62,11 @@ export default function ContactUs({ contactData, locale}) {
                                     </Button>
 
                                     <Link 
-                                    className='w-full'
                                     href='https://cal.com/codecrafters/30min'
-                                    target='_blank'>
-                                        <button 
-                                        aria-label='Book a meeting'
-                                        className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-100 md:text-base text-basic hover:bg-slate-100/80 h-10 py-4 md:py-8 md:px-10 md:font-bold w-full gap-2 px-6 uppercase">
+                                    target='_blank'
+                                    className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-slate-100 md:text-base text-basic hover:bg-slate-100/80 h-10 py-4 md:py-8 md:px-10 md:font-bold w-full gap-2 px-6 uppercase">
                                             <PiCalendarBlankThin />
                                             {localizedBtn}
-                                        </button>
                                     </Link>
                                 </div>
                             </Container>

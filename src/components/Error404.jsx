@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import Button from './Button'
+
 
 function Error404() {
   return (
@@ -54,18 +54,12 @@ function Error404() {
         <p className="font-tag text-xl">Page not found</p>
         <div className="mt-10">
           <div className="">
-            <button
-            aria-label='Go back'
-            role='button'
-            className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400  disabled:opacity-50 border text-light bg-hero hover:bg-light/80 hover:text-dark  h-10 md:py-6 md:px-8 md:text-lg gap-4 px-6">
-              <Link href='/'>
+            
+              <Link 
+              href='/'
+              className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400  disabled:opacity-50 border text-light bg-hero hover:bg-light/80 hover:text-dark  h-10 md:py-6 md:px-8 md:text-lg gap-4 px-6">
                 Go back
               </Link>
-
-            </button>
-            
-           
-            
           </div>
         </div>
       </div>

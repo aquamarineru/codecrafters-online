@@ -41,11 +41,13 @@ export default function Blog({ initialPosts, total, locale }) {
                         </Head>
                         <Breadcrumb paths={paths} />
                         <Container className='pt-24 h-full'>
-                        <Link href='/' >
-                            <button className="flex items-center font-tag gap-3 before-element pt-10">
+                        <Link 
+                        href='/'
+                        className="flex items-center font-tag gap-3 hover:text-hover hover:transform pt-10" >
+                           
                                 <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
                                 {localizedBtn}
-                            </button>
+                            
                         </Link>
                         <div className="flex flex-col pt-5 gap-10 md:w-[50%] ">
                                 <h1 className="uppercase font-h1 text-3xl md:text-5xl  font-black  text-gray/70" >{localizedTitle} </h1>

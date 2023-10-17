@@ -9,11 +9,13 @@ export default  function Post ({ post, locale }) {
     return (
         <div className='bg-dark bg-hero h-full py-10 px-2 flex items-center' >
             <Container className=''>
-                <Link href='/blog' >
-                    <button className="flex items-center font-tag gap-3 before-element pt-24 text-light">
+                <Link 
+                href='/blog'
+                className="flex items-center font-tag gap-3 hover:text-hover hover:transform pt-24 text-light" >
+                    
                         <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
                                     Back
-                    </button>
+                    
                 </Link>
                 <BodyPost post={post} locale={locale} />
             </Container>

@@ -50,36 +50,30 @@ export default function ProjectDemo({ projectData, locale}) {
                         <Container className='z-20 flex flex-col  items-center justify-between gap-5'>
                             <h2 className='uppercase font-h1 text-4xl text-center font-black md:text-6xl text-gray/60'>{localizedTitle} </h2>
                             <div className='pt-10 flex flex-col lg:flex-row items-center justify-around gap-10'>
-                            <Image 
-                            src={urlFor(projectItem.image).url()}
-                            alt={projectItem.image.alt}
-                            width={800}
-                            height={500}
-                            className='md:w-[70%] lg:w-1/2 h-auto rounded'
-                            />
-                            <div className='flex flex-col items-center justify-between  lg:items-start '>
-                                <BlockContent
-                                blocks={projectItem.body[locale]}
-                                serializers={serializers}
-                                projectId={clientConfig.projectId}
-                                dataset={clientConfig.dataset}
+                                <Image 
+                                src={urlFor(projectItem.image).url()}
+                                alt={projectItem.image.alt}
+                                width={800}
+                                height={500}
+                                className='md:w-[70%] lg:w-1/2 h-auto rounded'
                                 />
-                                
-                                    <button className="flex items-center justify-center ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  md:py-8 md:px-10 md:text-base md:font-bold h-10 py-4 gap-2 px-6 rounded">
-                                    <Link href='/projects' className='z-20 flex items-center justify-between gap-2 text-dark'>
-                                    {localizedButton}
-                                    <PiArrowRight 
-                                    className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
-                                    /> 
-                                     </Link>
-                                    </button>
-                               
-                            </div> 
-                            
-
+                                <div className='flex flex-col items-center justify-between  lg:items-start '>
+                                    <BlockContent
+                                    blocks={projectItem.body[locale]}
+                                    serializers={serializers}
+                                    projectId={clientConfig.projectId}
+                                    dataset={clientConfig.dataset}
+                                    />
+                                    <Link 
+                                    href='/projects' 
+                                    className="flex items-center justify-center ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  md:py-8 md:px-10 md:text-base md:font-bold h-10 py-4 gap-2 px-6 rounded">
+                                        {localizedButton}
+                                        <PiArrowRight 
+                                        className='transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer' 
+                                        /> 
+                                    </Link>
+                                </div> 
                             </div>
-                            
-
                         </Container>
                     </div>
                 )

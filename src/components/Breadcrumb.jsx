@@ -10,7 +10,8 @@ export default function Breadcrumb({ paths }) {
                     <ol className="flex items-center space-x-2 sm:space-x-1">
                         <li className='flex items-center'>
                             <Link 
-                            href="/" className="cursor-pointer font-tag text-light/70 text-lg before-element hover:text-light/50 ">
+                            href="/" 
+                            className="cursor-pointer font-tag text-light/70 text-lg before-element hover:text-light/50 ">
                             Home
                             </Link>
                         </li>
@@ -24,7 +25,8 @@ export default function Breadcrumb({ paths }) {
                                     {path}
                                     </span>
                                     ) : (
-                                        <Link href={`/${path}`}
+                                        <Link 
+                                        href={`/${path}`}
                                         className="flex capitalize items-center text-lg text-light/70 before-element hover:text-light/50 ">
                                         {path}
                                         </Link>

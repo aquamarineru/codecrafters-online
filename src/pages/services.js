@@ -24,11 +24,13 @@ export default function ServicesPage ({locale, servicesPageData}) {
                             </Head>
                             <Breadcrumb paths={paths} />
                             <Container className='pt-32' >
-                            <Link href='/' >
-                                <button className="flex items-center font-tag gap-3 before-element pt-10">
+                            <Link 
+                            href='/'
+                            className="flex items-center font-tag gap-3 hover:text-hover hover:transform pt-10" >
+                                
                                     <PiArrowLeftLight className="transition-all duration-400 ease-in-out hover:transform hover:translate-x-1 cursor-pointer" />
                                     {localizedBtn}
-                                </button>
+                                
                             </Link>
                             <div className="flex items-center justify-between gap-5 " >
                             <div className="flex flex-col pt-5 gap-10 md:w-[50%] ">
