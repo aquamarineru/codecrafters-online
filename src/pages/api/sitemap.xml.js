@@ -8,18 +8,30 @@ const staticPages = [
     'services',
     'projects',
     'blog',
+    'terms-and-conditions',
+    'privacy-policy',
   ];
 
   async function fetchDynamicRoutes() {
-    const projectsQuery = '*[_type == "projectPage"]{slug}';
-    const blogPostsQuery = '*[_type == "post"]{slug}';
-    const projects = await client.fetch(projectsQuery);
-    const blogPosts = await client.fetch(blogPostsQuery);
+    try {
+      const projectsQuery = '*[_type == "projectItem"]{slug}';
+      const blogPostsQuery = '*[_type == "postMain"]{slug}';
+      const projects = await client.fetch(projectsQuery);
+      const blogPosts = await client.fetch(blogPostsQuery);
   
-    const projectRoutes = projects.map(project => `/projects/${encodeURIComponent(project.slug?.current || "")}`);
-    const blogRoutes = blogPosts.map(post => `blog/${encodeURIComponent(post.slug?.current || "")}`);
+      console.log('Projects:', projects);
+      console.log('Blog Posts:', blogPosts);
   
-    return [...projectRoutes, ...blogRoutes];
+      const projectRoutes = projects.map(project => `/projects/${encodeURIComponent(project.slug?.current || "")}`);
+      const blogRoutes = blogPosts.map(post => `blog/${encodeURIComponent(post.slug?.current || "")}`);
+  
+      console.log('Project Routes:', projectRoutes);
+      console.log('Blog Routes:', blogRoutes);
+  
+      return [...projectRoutes, ...blogRoutes];
+    } catch (error) {
+      console.error('Error fetching dynamic routes:', error);
+    }
   }
   const sitemapHandler = async (req, res) => {
     const dynamicRoutes = await fetchDynamicRoutes();
@@ -41,5 +53,5 @@ const staticPages = [
     res.write(sitemap);
     res.end();
   };
-  
+
   export default sitemapHandler;

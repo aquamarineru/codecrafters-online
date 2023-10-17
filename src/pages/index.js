@@ -5,7 +5,6 @@ import {  Hero, HowWeWork, Services, Statistic, ProjectHero, FAQ, ContactUs } fr
 
 
 export default function Home({ homeData, aboutData, projectData, servicesData, serviceTabsData, statisticData, faqData, contactData, footerData, locale }) {
-  console.log(footerData)
   return (
     <>
       <Hero homeData={homeData} locale={locale} />
