@@ -6,18 +6,21 @@ export default function Social() {
     return (
         <div className='fixed left-3 bottom-24 z-50 space-y-4'>
             <div className='after-element fixed bottom-10' />
-            <ShareButton 
+            <ShareButton
+            aria-label="Share on Twitter" 
             iconSrc="/twitter.svg" 
-            text="share on twitter" 
-            href="https://twitter.com" />
+            text="twitter" 
+            href="https://twitter.com/codecraftersdev" />
+            <ShareButton
+            aria-label="Share on Facebook" 
+            iconSrc="/telegram.svg" 
+            text="telegram" 
+            href="https://t.me/codeCraftersOnline" />
             <ShareButton 
-            iconSrc="/fb.svg" 
-            text="share on facebook" 
-            href="https://facebook.com" />
-            <ShareButton 
+            aria-label="Share on Instagram"
             iconSrc="/insta.svg" 
-            text="pin on instagram" 
-            href="https://instagram.com" />
+            text="instagram" 
+            href="https://www.instagram.com/codecrafters.online/" />
     </div>
 
         
