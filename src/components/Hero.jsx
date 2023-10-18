@@ -87,16 +87,17 @@ export default function Hero({ homeData, locale }) {
                                 className=' text-light z-20 text-base md:text-xl xl:text-2xl font-text md:w-[350px] lg:w-[600px]'>
                                 {localizedSubtitle}
                                 </motion.h2>  
-                                <div className='py-10 z-50 cursor-pointer flex flex-col lg:flex-row items-start  lg:items-center gap-5'>
-                                <Link 
-                                href="/#contact" 
-                                className='md:inline-flex rounded-md  ring-offset-basic transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-basic focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-basic bg-glass   h-10 py-4 px-6 z-30 flex items-center justify-center gap-2 font-tag cursor-pointer font-light hover:bg-basic/50 text-sm text-gray md:py-8 md:px-10 md:font-bold md:text-base  uppercase hover:text-light'> 
-                                    {localizedButton}
-                                </Link>
+                                <div className='py-10 z-50 cursor-pointer flex flex-col lg:flex-row items-start lg:items-center gap-5'>
+                                    <Link 
+                                    href="/#contact" 
+                                    className='md:inline-flex rounded-md  ring-offset-basic transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-basic focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-basic bg-glass  h-10 py-4 px-6 z-30 flex items-center justify-center gap-2 font-tag cursor-pointer font-light hover:bg-basic/50 text-sm text-gray md:py-8 md:px-10 md:font-bold md:text-base  uppercase hover:text-light'> 
+                                        {localizedButton}
+                                    </Link>
                                     <Link 
                                     href='https://cal.com/codecrafters/30min'
                                     target='_blank'
-                                    className=' className="md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  h-10 py-4 md:py-8 md:px-10 md:text-base md:font-bold  gap-2 px-6"'>
+                                    className='md:inline-flex flex items-center justify-center rounded-md font-tag text-sm ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-4 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  bg-light text-basic uppercase hover:bg-slate-100/80  h-10 py-4 md:py-8 md:px-10 md:text-base md:font-bold  gap-2 px-6 '>
+                                        
                                         <PiCalendarBlankThin className='font-bold text-xl'  /> 
                                         {localizedBtn}
                                     </Link>
