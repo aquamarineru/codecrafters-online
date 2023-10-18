@@ -111,7 +111,7 @@ export default function Hero({ homeData, locale }) {
                             key={homeItem._id}
                             src={urlFor(homeItem.image).url()}
                             alt={homeItem.title}
-                            sizes="(max-width: 600px)"
+                            sizes="(max-width: 600px) 100vw, 1400px"
                             priority={true}
                             width={1400}
                             height={800}

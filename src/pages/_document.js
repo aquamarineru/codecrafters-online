@@ -5,8 +5,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-82C4ZZNG70" defer />
-        <Script id="google-analytics" strategy="beforeInteractive" defer>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-82C4ZZNG70" />
+        <Script id="google-analytics" strategy="beforeInteractive">
           {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}

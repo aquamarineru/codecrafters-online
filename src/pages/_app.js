@@ -7,7 +7,7 @@ function App({ Component, pageProps }) {
   const { footerData, locale } = pageProps;
   return (
     <div >
-    <header role="banner">
+    <header>
       <Navbar/>
     </header>
     <Layout footerData={footerData} locale={locale}>

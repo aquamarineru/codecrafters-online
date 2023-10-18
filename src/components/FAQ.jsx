@@ -31,7 +31,9 @@ function FaqItem({ title, body }) {
                 onClick={toggleOpen}   
             >
                 <h2 className="uppercase font-h1 font-bold text-gray flex">{title}</h2>
-                <button className="">{isOpen ? <RxCaretUp /> : <RxCaretDown />}</button>
+                <button
+                aria-label={isOpen ? "Collapse" : "Expand"}  
+                className="">{isOpen ? <RxCaretUp /> : <RxCaretDown />}</button>
             </div>
             {isOpen && 
             <div className="p-4 text-sm transition-all duration-500 ease-in-out">

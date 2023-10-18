@@ -74,7 +74,10 @@ export default function Blog({ initialPosts, total, locale }) {
                             </PostGrid>
                             {isLoadButtonVisible && (
                                 <div className="flex justify-center py-10">
-                                    <Button onClick={getMorePosts} disabled={loading}>
+                                    <Button 
+                                    onClick={getMorePosts} 
+                                    disabled={loading}
+                                    ariaLabel="Load more posts">
                                         Load more post
                                     </Button>
                                 </div>

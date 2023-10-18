@@ -56,6 +56,7 @@ export default function ContactUs({ contactData, locale}) {
                                         {localizedDescription}
                                     </p>
                                     <Button
+                                        aria-label="Open Modal"
                                         onClick={toggleModal}
                                         className=' w-full text-sm z-20 cursor-pointer md:py-8 md:px-10 md:font-bold uppercase hover:text-light md:text-base'>
                                         {localizedModalBtn}
@@ -78,7 +79,10 @@ export default function ContactUs({ contactData, locale}) {
             isOpen={isOpen} 
             toggleModal={toggleModal}
             className="w-[300px]">
-                <button className="absolute top-3 right-3 text-2xl" onClick={toggleModal}>
+                <button 
+                className="absolute top-3 right-3 text-2xl" 
+                onClick={toggleModal}
+                aria-label="Close">
                     <MdOutlineClose />
                 </button>
                 <ContactForm contactData={contactData} locale={locale} /> 

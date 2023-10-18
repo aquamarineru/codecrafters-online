@@ -29,10 +29,10 @@ export default function Layout({ children, footerData, locale  }) {
                 
             </Head>
                 <Social />
-            <main role="main" className="flex-grow ">
+            <main className="flex-grow ">
                 {children}
             </main>
-            <footer role="contentinfo">
+            <footer>
                 <Footer footerData={footerData} locale={locale} />
             </footer>
         </div>      
