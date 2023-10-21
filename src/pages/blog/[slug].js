@@ -29,7 +29,8 @@ function blockToPlainText(blockContent) {
 }
 
 export default  function Post ({ post, locale }) {
-    const localizedSeoTitle = post.seoTitle && Array.isArray(post.seoTitle) ? post.seoTitle.find(item => item._key === locale)?.value : null;
+    console.log('Fetched post data:', post);
+    const localizedSeoTitle = post.seoTitle?.find(item => item._key === locale)?.value;
     const localizedSeoDescription = post.seoDescription && post.seoDescription[locale]
     ? blockToPlainText(post.seoDescription[locale])
     : null;
