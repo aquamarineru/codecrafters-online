@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Script from "next/script";
 import { Footer, Social } from "./index";
 
 
@@ -25,8 +24,6 @@ export default function Layout({ children, footerData, locale  }) {
             <meta property="og:type" content="website" />
             <meta name="google-site-verification" content="AJ8nK6Q4nHJgsQxUBhlsO6ChsTgPAs75k9PIPuXgb_M" />
             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-
-                
             </Head>
                 <Social />
             <main className="flex-grow ">

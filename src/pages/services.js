@@ -6,21 +6,55 @@ import { PiArrowLeftLight } from 'react-icons/pi';
 import { Container, Breadcrumb, ServicesPageItems } from "@/components";
 import { client, urlFor } from "../../lib/client";
 
+const serializers = {
+    types: {
+        block: props => props.children.join('')
+    }
+};
+
+function blockToPlainText(blockContent) {
+    if (!blockContent || !Array.isArray(blockContent)) {
+        return '';
+    }
+
+    return blockContent
+        .map(block => {
+            if (block._type === 'block') {
+                return block.children
+                    .map(child => child.text || '')
+                    .join('');
+            }
+            return '';
+        })
+        .join('\n');
+}
+
 export default function ServicesPage ({locale, servicesPageData}) {
     return (
         <div className="bg-dark bg-hero h-full w-full text-light"
         >
+            
             {
                 Array.isArray(servicesPageData) && servicesPageData.map((servicesItem) => {
                     const localizedBtn = servicesItem.button.find(item => item._key === locale)?.value;
                     const localizedTitle = servicesItem.title.find(item => item._key === locale)?.value;
                     const localizedDescription = servicesItem.description.find(item => item._key === locale)?.value;
                     const paths = [ localizedTitle]
+                    const localizedSeoTitle = servicesItem.seoTitle.find(item => item._key === locale)?.value;
+                    const localizedSeoDescription = servicesItem.seoDescription && servicesItem.seoDescription[locale]
+                    ? blockToPlainText(servicesItem.seoDescription[locale])
+                    : null;
+                    const localizedSeoImage = servicesItem.seoImage && urlFor(servicesItem.seoImage.asset).url();
                
                     return(
                         <div key={servicesItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
-                            <Head> 
-                                <title> {localizedTitle} | CodeCrafters </title>
+                            <Head>
+                                <title>{localizedSeoTitle}</title>
+                                <meta name='og:title' content={localizedSeoTitle} />
+                                {localizedSeoDescription && <meta name="og:description" content={localizedSeoDescription} />}
+                                {localizedSeoDescription && <meta name="description" content={localizedSeoDescription} />}
+                                {localizedSeoImage && <meta name="og:image" content={localizedSeoImage} />}
+                                <meta property="og:type" content="website" />
                             </Head>
                             <Breadcrumb paths={paths} />
                             <Container className='pt-32' >
@@ -79,6 +113,9 @@ export async function getStaticProps({ locale }) {
     try {
         const servicesPageQuery = `*[_type == "servicesPage"]{
             _id,
+            seoTitle,
+            seoDescription,
+            seoImage,
             title,
             description,
             button,

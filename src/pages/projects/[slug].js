@@ -7,15 +7,48 @@ import Image from "next/image";
 import { PiArrowLeftLight } from 'react-icons/pi';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
+const serializers = {
+    types: {
+        block: props => props.children.join('')
+    }
+};
+
+function blockToPlainText(blockContent) {
+    if (!blockContent || !Array.isArray(blockContent)) {
+        return '';
+    }
+
+    return blockContent
+        .map(block => {
+            if (block._type === 'block') {
+                return block.children
+                    .map(child => child.text || '')
+                    .join('');
+            }
+            return '';
+        })
+        .join('\n');
+}
+
 export default function ProjectPage({ item, locale, contactData}) {
 
     const localizedBtn = item.button.find(item => item._key === locale)?.value;
     const localizedTitle = item.title.find(item => item._key === locale)?.value;
+    const localizedSeoTitle = item.seoTitle.find(item => item._key === locale)?.value;
+    const localizedSeoDescription = item.seoDescription && item.seoDescription[locale]
+    ? blockToPlainText(item.seoDescription[locale])
+    : null;
+    const localizedSeoImage = item.seoImage && urlFor(item.seoImage.asset).url();
     const paths = ['projects' ,localizedTitle]
     return (
         <div  className='bg-dark bg-hero h-full py-10 px-2 text-light'>
-            <Head> 
-                <title> {localizedTitle} | Code Crafters </title>
+            <Head>
+                <title>{localizedSeoTitle}</title>
+                <meta name='og:title' content={localizedSeoTitle} />
+                {localizedSeoDescription && <meta name="og:description" content={localizedSeoDescription} />}
+                {localizedSeoDescription && <meta name="description" content={localizedSeoDescription} />}
+                {localizedSeoImage && <meta name="og:image" content={localizedSeoImage} />}
+                <meta property="og:type" content="website" />
             </Head>
             <Breadcrumb paths={paths} />
             <Container className=' pt-10 md:pt-24 h-full' style={{background: 'radial-gradient(circle at center, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
@@ -93,6 +126,9 @@ export async function getStaticProps({ params: { slug }, locale }) {
     try {
         const query = `*[_type == "projectItem" && slug.current == $slug]{
             _id,
+            seoTitle,
+            seoDescription,
+            seoImage,
             button,
             title,
             image,
@@ -112,6 +148,7 @@ export async function getStaticProps({ params: { slug }, locale }) {
                 item,
                 locale,
             },
+            revalidate: 60,
         }
 
     }catch(error) {

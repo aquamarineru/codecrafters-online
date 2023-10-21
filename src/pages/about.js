@@ -7,6 +7,28 @@ import Image from "next/image";
 
 import { PiArrowLeftLight } from "react-icons/pi";
 
+const serializers = {
+    types: {
+        block: props => props.children.join('')
+    }
+};
+
+function blockToPlainText(blockContent) {
+    if (!blockContent || !Array.isArray(blockContent)) {
+        return '';
+    }
+
+    return blockContent
+        .map(block => {
+            if (block._type === 'block') {
+                return block.children
+                    .map(child => child.text || '')
+                    .join('');
+            }
+            return '';
+        })
+        .join('\n');
+}
 
 function AboutPage({ aboutPageData, locale }) {
     return (
@@ -15,12 +37,23 @@ function AboutPage({ aboutPageData, locale }) {
             const localizedBtn = aboutPageItem.btn.find(item => item._key === locale)?.value;
             const localizedTitle = aboutPageItem.title.find(item => item._key === locale)?.value;
             const localizedDescription = aboutPageItem.description.find(item => item._key === locale)?.value;
+            const localizedSeoTitle = aboutPageItem.seoTitle.find(item => item._key === locale)?.value;
+            const localizedSeoImage = aboutPageItem.seoImage && urlFor(aboutPageItem.seoImage.asset).url();
+            const localizedSeoDescription = aboutPageItem.seoDescription && aboutPageItem.seoDescription[locale]
+            ? blockToPlainText(aboutPageItem.seoDescription[locale])
+            : null;
+
             const paths = [ localizedTitle]
 
             return(
                 <div key={aboutPageItem._id} style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 50%)'}}>
                     <Head> 
-                        <title> {localizedTitle} | CodeCrafters </title>
+                    <title>{localizedSeoTitle}</title>
+                    <meta name='og:title' content={localizedSeoTitle} />
+                    {localizedSeoDescription && <meta name="og:description" content={localizedSeoDescription} />}
+                    {localizedSeoDescription && <meta name="description" content={localizedSeoDescription} />}
+                    {localizedSeoImage && <meta name="og:image" content={localizedSeoImage} />}
+                    <meta property="og:type" content="website" />
                     </Head>
                     <Breadcrumb paths={paths} />
                     <Container className='pt-24 h-full' >
@@ -144,6 +177,9 @@ function AboutPage({ aboutPageData, locale }) {
   export async function getStaticProps({ locale }) {
     const aboutPageQuery = `*[_type == "aboutContent"]{
         _id,
+        seoImage,
+        seoTitle,
+        seoDescription,
         btn,
         title,
         description,

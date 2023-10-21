@@ -1,13 +1,49 @@
 import React from 'react'
-import { client } from '../../../lib/client'
-import { BodyPost, Container, ContactUs } from "@/components";
+import { client, urlFor } from '../../../lib/client'
+import { BodyPost, Container, } from "@/components";
 import Link from "next/link";
 import Head from 'next/head';
 import { PiArrowLeftLight } from 'react-icons/pi';
 
+const serializers = {
+    types: {
+        block: props => props.children.join('')
+    }
+};
+
+function blockToPlainText(blockContent) {
+    if (!blockContent || !Array.isArray(blockContent)) {
+        return '';
+    }
+
+    return blockContent
+        .map(block => {
+            if (block._type === 'block') {
+                return block.children
+                    .map(child => child.text || '')
+                    .join('');
+            }
+            return '';
+        })
+        .join('\n');
+}
+
 export default  function Post ({ post, locale }) {
+    const localizedSeoTitle = post.seoTitle.find(item => item._key === locale)?.value;
+    const localizedSeoDescription = post.seoDescription && post.seoDescription[locale]
+    ? blockToPlainText(post.seoDescription[locale])
+    : null;
+    const localizedSeoImage = post.seoImage && urlFor(post.seoImage.asset).url();
     return (
         <div className='bg-dark bg-hero h-full py-10 px-2 flex items-center' >
+            <Head>
+            <title>{localizedSeoTitle}</title>
+            <meta name='og:title' content={localizedSeoTitle} />
+            {localizedSeoDescription && <meta name="og:description" content={localizedSeoDescription} />}
+            {localizedSeoDescription && <meta name="description" content={localizedSeoDescription} />}
+            {localizedSeoImage && <meta name="og:image" content={localizedSeoImage} />}
+            <meta property="og:type" content="website" />
+        </Head>
             <Container className=''>
                 <Link 
                 href='/blog'
@@ -38,6 +74,9 @@ export async function getStaticProps({ params: { slug }, locale }) {
     try{
         const query = `*[_type == "postMain" && slug.current == $slug]{
             _id,
+            seoTitle,
+            seoDescription,
+            seoImage,
             title,
             image,
             publishedAt,

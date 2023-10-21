@@ -6,7 +6,9 @@ export default function Breadcrumb({ paths }) {
     return (
         <div className="hidden md:flex absolute top-[65px] left-0 z-1 w-full  px-4 py-4 bg-hero" style={{background: 'radial-gradient(circle at center top, rgb(52, 35, 89) 0%, rgba(15, 25, 38, 0) 70%)'}}>
             <Container className="">
-                <nav className="flex items-center justify-center font-tag text-light text-sm" aria-label="Breadcrumb">
+                <nav 
+                className="flex items-center justify-center font-tag text-light text-sm" 
+                aria-label="Breadcrumb">
                     <ol className="flex items-center space-x-2 sm:space-x-1">
                         <li className='flex items-center'>
                             <Link 

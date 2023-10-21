@@ -27,7 +27,7 @@ const serializers = {
                 case 'bullet':
                     return <ul className="text-light list-disc pl-6 mb-4 font-light text-sm md:text-base"><li className="mb-2">{props.children}</li></ul>;
                 case 'number':
-                    return <o className="text-light list-decimal pl-6 mb-4 font-light"><li className="mb-2">{props.children}</li></o>;
+                    return <ol className="text-light list-decimal pl-6 mb-4 font-light"><li className="mb-2">{props.children}</li></ol>;
                 default:
                     return <p className="text-light text-sm md:text-base font-light mb-4">{props.children}</p>;
             }
