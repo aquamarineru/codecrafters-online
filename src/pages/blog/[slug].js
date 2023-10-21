@@ -29,7 +29,7 @@ function blockToPlainText(blockContent) {
 }
 
 export default  function Post ({ post, locale }) {
-    const localizedSeoTitle = post.seoTitle.find(item => item._key === locale)?.value;
+    const localizedSeoTitle = post.seoTitle && Array.isArray(post.seoTitle) ? post.seoTitle.find(item => item._key === locale)?.value : null;
     const localizedSeoDescription = post.seoDescription && post.seoDescription[locale]
     ? blockToPlainText(post.seoDescription[locale])
     : null;
@@ -96,6 +96,11 @@ export async function getStaticProps({ params: { slug }, locale }) {
             }
           }`
         const [post] = await client.fetch(query, { slug });
+        if (!post) {
+            return {
+                notFound: true
+            };
+        }
         return {
             props: { 
                 post, 
