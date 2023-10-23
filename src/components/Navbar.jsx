@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Link from 'next/link';
+import Image from "next/image";
 import Container from './Container';
 import { useRouter } from 'next/router';
 import { CgMenuLeft } from 'react-icons/cg';
@@ -39,8 +40,14 @@ export default function Navbar() {
                 <nav className="mx-auto max-w-7xl px-8 flex items-center justify-between py-5 relative ">
                     <Link 
                     href='/'
-                    className='text-light font-tag uppercase cursor-pointer transition-colors text-md hover:text-hover'
+                    className='flex items-center gap-2 text-light font-tag uppercase cursor-pointer transition-colors text-md hover:text-hover'
                     >
+                        <Image
+                        src="/favicon-16x16.png"
+                        alt="Code Crafters"
+                        width={30}
+                        height={30}
+                        />
                     Code Crafters
                     </Link>
                     <div className="flex items-center gap-4">
