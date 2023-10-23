@@ -19,14 +19,10 @@ const staticPages = [
       const projects = await client.fetch(projectsQuery);
       const blogPosts = await client.fetch(blogPostsQuery);
   
-      console.log('Projects:', projects);
-      console.log('Blog Posts:', blogPosts);
   
       const projectRoutes = projects.map(project => `/projects/${encodeURIComponent(project.slug?.current || "")}`);
       const blogRoutes = blogPosts.map(post => `blog/${encodeURIComponent(post.slug?.current || "")}`);
   
-      console.log('Project Routes:', projectRoutes);
-      console.log('Blog Routes:', blogRoutes);
   
       return [...projectRoutes, ...blogRoutes];
     } catch (error) {
