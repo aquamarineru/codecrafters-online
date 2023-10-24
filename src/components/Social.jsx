@@ -35,7 +35,12 @@ function ShareButton({iconSrc, text, href}){
         target='_blank'
         className="relative h-7 group block">
                 <div className="absolute w-8 h-8 bg-light rounded-full top-1/2 transform -translate-y-1/2 hover:shadow group-hover:translate-x-px z-10">
-                    <Image src={iconSrc} alt={text} width={30} height={30} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                    <Image 
+                    src={iconSrc} 
+                    alt={text} 
+                    width={30} 
+                    height={30} 
+                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
                 </div>
                 <div className="hidden md:block overflow-hidden ml-4 h-7">
                     <div className="bg-gray text-dark font-tag h-7 text-sm text-gray-700 px-6 py-1 transform translate-x-full transition-transform duration-175 ease-in group-hover:translate-x-0">
