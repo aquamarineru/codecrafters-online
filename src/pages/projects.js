@@ -103,8 +103,8 @@ export async function getStaticProps({ locale }) {
             props: {
                 projectPageData,
                 locale,
-                revalidate: 60,
             },
+            revalidate: 60,
         }
     } catch (error) {
         console.error("Error fetching data:", error);
