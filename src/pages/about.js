@@ -206,6 +206,7 @@ function AboutPage({ aboutPageData, locale }) {
         props: {
             aboutPageData,
             locale,
+            revalidate: 60,
         },
     }
   }
