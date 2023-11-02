@@ -12,7 +12,7 @@ export default function Layout({ children, footerData, locale  }) {
             <title>Code Crafters Online | Web Developers</title>
             <meta name="description" content="At Code Crafters, we architect web solutions that are not only highly performant and scalable but also tailored to your unique needs. Discover the potential of our tech stack for your project." />
             <meta name="keywords" content="web developer, Web Entwickler, website" />
-            <meta name="author" content="Marina" />
+            <meta name="author" content="www.codecrafters.online" />
             <meta name="creator" content="Code Crafters" />
             <meta name="robots" content="index, follow" />
             <meta property="og:title" content="Code Crafters Online | Web Developers" />
